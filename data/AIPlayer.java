@@ -10,15 +10,15 @@ public class AIPlayer extends Player {
 	 * @param the pawns of the player
 	 */
 	public AIPlayer(Pawn[] pawnList) {
-		// TODO - implement AIPlayer.AIPlayer
-		throw new UnsupportedOperationException();
+		super("Computer",pawnList);
+		
 	}
 
 	/**
 	 * This method manages the next move of the IA, randomly generated.
 	 */
-	public void play() {
-
+	public int[] play() {
+		//play au hasard
 	}
 
 }

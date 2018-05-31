@@ -11,7 +11,7 @@ public class HumanPlayer extends Player {
 	 * @param pawnList the pawns of the player
 	 */
 	public HumanPlayer(String nom,Pawn[] pawnList) {
-
+		super(nom, pawnList);
 	}
 
 

@@ -12,7 +12,7 @@ public class Square{
     * It creates a new pawn ArrayList.
     */
    public Square(){
-
+		ArrayList<Pawn> = new ArrayList<Pawn>();
    }
    /**
     * Gets the ArrayList of pawns of the square.

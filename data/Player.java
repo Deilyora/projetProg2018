@@ -18,8 +18,9 @@ public abstract class Player {
 	 * @param pawns the pawns of the player
 	 */
 	public Player(String nom,Pawn[] pawns) {
-		// TODO - implement Player.Player
-		throw new UnsupportedOperationException();
+		this.playerName = nom;
+		this.pawnList = pawns;
+		this.frozenList = new Pawn[12];
 	}
 
 	/**
