@@ -13,8 +13,6 @@ public class PawnS4 extends Pawn {
 	 * @param eaten is true if the pawn has been eaten
 	 */
 	public PawnS4(int posX, int posY, boolean eating, boolean eaten) {
-		// TODO - implement PawnS4.PawnS4
-		throw new UnsupportedOperationException();
+		super(posX,posY,eating,eaten);
 	}
-
 }
