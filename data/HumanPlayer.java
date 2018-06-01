@@ -1,5 +1,5 @@
 package data;
-/**
+import java.util.Scanner;
  * This class is used to represent a human player.
  * Human players choose their own name.
  */
@@ -20,6 +20,9 @@ public class HumanPlayer extends Player {
 	 * It asks the player wich pawn he wants to move, and where he wants to move it.
 	 */
 	public void play() {
+		System.out.println(this.playerName+"'s turn :");
+		System.out.println("Enter coordinate X of the pawn you want to move");
+		Scanner in = new Scanner(System.in);
 		
 	}
 }
