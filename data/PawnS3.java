@@ -4,7 +4,7 @@ package data;
  * This class represents the size 3 pawn
  * size 2 pawns can eat size 4 pawns and can be eaten by size 2 pawns
  */
- 
+
 public class PawnS3 extends Pawn {
 
 	/**
@@ -15,8 +15,6 @@ public class PawnS3 extends Pawn {
 	 * @param eaten is true if the pawn has been eaten
 	 */
 	public PawnS3(int posX, int posY, boolean eating, boolean eaten) {
-		// TODO - implement PawnS3.PawnS3
-		throw new UnsupportedOperationException();
+      super(posX,posY,eating,eaten);
 	}
-
 }

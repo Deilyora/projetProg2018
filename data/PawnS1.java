@@ -15,7 +15,6 @@ public class PawnS1 extends Pawn {
 	 */
 
 	public PawnS1(int posX, int posY, boolean eating, boolean eaten) {
-		super();
+		super(posX,posY,eating,eaten);
 	}
-
 }
