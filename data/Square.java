@@ -21,4 +21,13 @@ public class Square{
    public ArrayList<Pawn> getPawns(){
       return this.pawns;
    }
+   public void addPawn(Pawn newPawn){
+      pawns.add(newPawn);
+   }
+   public void removePawn(){
+
+   }
+   public void removeAll(){
+      ArrayList<Pawn> = new ArrayList<Pawn>();
+   }
 }
