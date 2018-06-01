@@ -10,8 +10,8 @@ public class HumanPlayer extends Player {
 	 * @param nom the name chosen by the human player
 	 * @param pawnList the pawns of the player
 	 */
-	public HumanPlayer(String nom,Pawn[] pawnList) {
-		super(nom, pawnList);
+	public HumanPlayer(String name,Pawn[] pawnList) {
+		super(name, pawnList);
 	}
 
 
@@ -20,6 +20,6 @@ public class HumanPlayer extends Player {
 	 * It asks the player wich pawn he wants to move, and where he wants to move it.
 	 */
 	public void play() {
-
+		
 	}
 }

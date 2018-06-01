@@ -17,8 +17,8 @@ public abstract class Player {
 	 * @param nom The name of the player
 	 * @param pawns the pawns of the player
 	 */
-	public Player(String nom,Pawn[] pawns) {
-		this.playerName = nom;
+	public Player(String name,Pawn[] pawns) {
+		this.playerName = name;
 		this.pawnList = pawns;
 		this.frozenList = new Pawn[12];
 	}
