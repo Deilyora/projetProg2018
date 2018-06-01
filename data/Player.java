@@ -14,7 +14,7 @@ public abstract class Player {
 	/**
 	 * The constructor of the Player has two attribute, the name of that player and his pawns.
 	 * AI player will always have the same defined name.
-	 * @param nom The name of the player
+	 * @param name The name of the player
 	 * @param pawns the pawns of the player
 	 */
 	public Player(String name,Pawn[] pawns) {

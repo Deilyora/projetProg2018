@@ -7,7 +7,7 @@ public class HumanPlayer extends Player {
 
 	/**
 	 * This is the constructor of the class, it defines the name of the player
-	 * @param nom the name chosen by the human player
+	 * @param name the name chosen by the human player
 	 * @param pawnList the pawns of the player
 	 */
 	public HumanPlayer(String name,Pawn[] pawnList) {
