@@ -10,6 +10,7 @@ public class Game {
 	private int width;
 	private int height;
 	private Square[][] board;
+	private int nbOfPawns;
 
 
 	/**
