@@ -23,12 +23,12 @@ public class AIPlayer extends Player {
 			rdPawn = (int) (Math.random() * this.pawnList.length);
 		}
 		int[] newMove = {-1, 0, 1};
-		int rdPosX = (int) (this.pawnList[rdPawn].getPosX() + newMove[(int) Math.Random() * 3];
-		int rdPosY = (int) (this.pawnList[rdPawn].getPosY() + newMove[(int) Math.Random() * 3];
+		int rdPosX = (int) (this.pawnList[rdPawn].getPosX() + newMove[(int) Math.Random() * 3]);
+		int rdPosY = (int) (this.pawnList[rdPawn].getPosY() + newMove[(int) Math.Random() * 3]);
 		boolean release = false;
-		while (!this.pawnList[rdPawn].movePawn(rdPosX, rdPosY, release) {
-			rdPosX = (int) (this.pawnList[rdPawn].getPosX() + newMove[(int) Math.Random() * 3];
-			rdPosY = (int) (this.pawnList[rdPawn].getPosY() + newMove[(int) Math.Random() * 3];
+		while (!this.pawnList[rdPawn].movePawn(rdPosX, rdPosY, release)) {
+			rdPosX = (int) (this.pawnList[rdPawn].getPosX() + newMove[(int) Math.Random() * 3]);
+			rdPosY = (int) (this.pawnList[rdPawn].getPosY() + newMove[(int) Math.Random() * 3]);
 		}
 
 	}
