@@ -27,9 +27,11 @@ public class HumanPlayer extends Player {
 		int actualX;
 		int actualY;
 		int thePawn;
+		String yn = null;
+		boolean realeasing =false;
 		System.out.println(this.playerName+"'s turn :");
 		while (!playable) {
-			while(!valid) {
+			while(!existing) {
 
 				System.out.println("Enter coordinate X of the pawn you want to move");
 				Scanner in = new Scanner(System.in);
@@ -39,18 +41,31 @@ public class HumanPlayer extends Player {
 				for (int i = 0; i < this.pawnList.length; i++) {
 					if (this.pawnList[i].getPosX() == actualX && this.pawnList[i].getPosY() == actualY && !this.pawnList[i].getEaten() && !this.pawnList[i].getFrozen() ) {
 						existing = true;
+						thePawn = pawnList[i];
+						System.out.println("Now choose where you want to move your pawn");
 					}
 				}
 				if (!existing) {
 					System.out.println("Error : No valide Pawn with these coordinates, try again");
 				}
 			}
-			if  (!this.pawnList[i].getEaten() && !this.pawnList[i].getFrozen() 
-			
-						
-						
-			
-		
-		
+			System.out.println("Enter the new coordinate X of the pawn you want to move");
+			Scanner in = new Scanner(System.in);
+			newX = in.NextInt();
+			System.out.println("Enter the new  coordinate Y of the pawn you want to move");
+			newY = in.NextInt();
+			if (thePawn.getEating()) {
+				while (!yn.equals("y") && !yn.equals("n")) {
+					System.out.println("Do you want to release the pawn under it ? y/n");
+					yn = in.NextLine();
+				}
+				if (yn.equals("y")) {
+					realeasing = true
+				}
+				else {
+					releasing = false;
+				}
+			}
+			if (
 	}
 }
