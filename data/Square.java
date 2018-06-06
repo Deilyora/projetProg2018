@@ -12,7 +12,7 @@ public class Square{
     * It creates a new pawn ArrayList.
     */
    public Square(){
-		ArrayList<Pawn> = new ArrayList<Pawn>();
+		this.pawns = new ArrayList<Pawn>();
    }
    /**
     * Gets the ArrayList of pawns of the square.
@@ -26,19 +26,19 @@ public class Square{
     * @param newPawn the pawn to add
     */
    public void addPawn(Pawn newPawn){
-      pawns.add(newPawn);
+      this.pawns.add(newPawn);
    }
    /**
-    * Removes the last pawn added(which should be the one on top of the others). 
+    * Removes the last pawn added(which should be the one on top of the others).
     */
    public void removePawn(){
-
+      this.pawns.remove(this.pawns.size()-1);
    }
    /**
     * Removes all the pawn on the square.
     * This happens if the pawn on top is moved without releasing the ones below.
     */
    public void removeAll(){
-      ArrayList<Pawn> = new ArrayList<Pawn>();
+      this.pawns = new ArrayList<Pawn>();
    }
 }
