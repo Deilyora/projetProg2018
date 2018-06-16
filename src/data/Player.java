@@ -54,6 +54,13 @@ public abstract class Player {
 		this.frozenList = frozen;
 	}
 	/**
+	 * Gets the name of the player
+	 * @return the name of the player
+	 */
+	public String getPlayerName() {
+		return this.playerName;
+	}
+	/**
 	 * This method manages the next move of a player, whether or not it is a human player.
 	 */
 	public abstract void play();

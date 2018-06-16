@@ -104,9 +104,7 @@ public abstract class Pawn {
 	 * @return true if the move was possible and the pawn has been moved, false otherwise.
 	 */
 	public boolean movePawn(int posX, int posY, boolean release) {
-		if (checkNextMove) {
-			
-		}
+		return false;
 	}
 
 	/**
@@ -125,7 +123,7 @@ public abstract class Pawn {
 	private boolean checkNextMove(int posX, int posY){
 		boolean ret=false;
 		//First we wanna check if the new position exists on the grid
-		if()
+		return ret;
 	}
 
 	/**
@@ -134,6 +132,13 @@ public abstract class Pawn {
 	 */
 	public void setFrozen(boolean frozen) {
 		this.frozen = frozen;
+	}
+	/**
+	 * Gets if the pawn is frozen or not 
+	 * @return true if it is frozen
+	 */
+	public boolean getFrozen() {
+		return this.frozen;
 	}
 
 }

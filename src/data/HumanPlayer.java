@@ -26,22 +26,25 @@ public class HumanPlayer extends Player {
 		int newY;
 		int actualX;
 		int actualY;
-		int thePawn;
+		Pawn thePawn = null;
+		int goodPawn = -1;
+		Pawn[] thisPawnList = getPawnList();
 		String yn = null;
-		boolean realeasing =false;
-		System.out.println(this.playerName+"'s turn :");
+		boolean releasing =false;
+		System.out.println(getPlayerName()+"'s turn :");
 		while (!playable) {
 			while(!existing) {
 
 				System.out.println("Enter coordinate X of the pawn you want to move");
 				Scanner in = new Scanner(System.in);
-				actualX = in.NextInt();
+				actualX = in.nextInt();
 				System.out.println("Enter coordinate Y of the pawn you want to move");
-				actualY = in.NextInt();
-				for (int i = 0; i < this.pawnList.length; i++) {
-					if (this.pawnList[i].getPosX() == actualX && this.pawnList[i].getPosY() == actualY && !this.pawnList[i].getEaten() && !this.pawnList[i].getFrozen() ) {
+				actualY = in.nextInt();
+				for (int i = 0; i < thisPawnList.length; i++) {
+					if (thisPawnList[i].getPosX() == actualX && thisPawnList[i].getPosY() == actualY && !thisPawnList[i].getEaten() && !thisPawnList[i].getFrozen() ) {
 						existing = true;
-						thePawn = pawnList[i];
+						thePawn = thisPawnList[i];
+						goodPawn = i;
 						System.out.println("Now choose where you want to move your pawn");
 					}
 				}
@@ -51,21 +54,27 @@ public class HumanPlayer extends Player {
 			}
 			System.out.println("Enter the new coordinate X of the pawn you want to move");
 			Scanner in = new Scanner(System.in);
-			newX = in.NextInt();
-			System.out.println("Enter the new  coordinate Y of the pawn you want to move");
-			newY = in.NextInt();
+			newX = in.nextInt();
+			System.out.println("Enter the new coordinate Y of the pawn you want to move");
+			newY = in.nextInt();
 			if (thePawn.getEating()) {
 				while (!yn.equals("y") && !yn.equals("n")) {
 					System.out.println("Do you want to release the pawn under it ? y/n");
-					yn = in.NextLine();
+					yn = in.nextLine();
 				}
 				if (yn.equals("y")) {
-					realeasing = true
+					releasing = true;
 				}
 				else {
 					releasing = false;
 				}
 			}
-			if (
+			if (thisPawnList[goodPawn].movePawn(newX, newY, releasing)) {
+				playable = true;
+			}
+			else {
+				System.out.println("You cannot do that move right now, try again with new coordinates");
+			}
+		}
 	}
 }
