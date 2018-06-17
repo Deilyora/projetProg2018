@@ -104,7 +104,8 @@ public abstract class Pawn {
 	 * @return true if the move was possible and the pawn has been moved, false otherwise.
 	 */
 	public boolean movePawn(int posX, int posY, boolean release) {
-		return false;
+		//if(checkNextMove(posX, posY) {
+			
 	}
 
 	/**
