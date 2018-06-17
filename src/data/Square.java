@@ -2,7 +2,7 @@ package data;
 import java.util.ArrayList;
 /**
  * This class represents a square on the grid.
- * It contains an ArrayList of pawn, which are the pawns on this square.
+ * It contains an ArrayList of pawn, which are the pawns on this square. The last element in the ArrayList is the pawn on top of the other.
  */
 public class Square{
    private ArrayList<Pawn> pawns;
@@ -40,5 +40,34 @@ public class Square{
     */
    public void removeAll(){
       this.pawns = new ArrayList<Pawn>();
+   }
+   
+   public String toString() {
+		String rep = null;
+		Pawn greaterPawn = null;
+		int nbPawns = pawns.size();
+		if (!pawns.isEmpty()) {
+			greaterPawn = pawns.get(nbPawns-1);
+		}
+		else {
+			rep = "-";
+		}
+		
+		if (greaterPawn != null) {
+			if (greaterPawn instanceof PawnS1) {
+				rep = "1";
+			}
+			else if (greaterPawn instanceof PawnS2) {
+				rep = "2";
+			}
+			else if (greaterPawn instanceof PawnS3) {
+				rep = "3";
+			}
+			else if (greaterPawn instanceof PawnS4) {
+				rep = "4";
+			}
+		}
+		
+		return rep;
    }
 }
