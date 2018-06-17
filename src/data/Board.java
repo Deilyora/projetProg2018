@@ -28,7 +28,23 @@ public class Board {
 	 * @return true if the move was possible and the pawn has been moved, false otherwise.
 	 */
 	public boolean movePawn(int posX, int posY, boolean release) {
-		return false;
+		boolean moved=false;
+		//First we wanna check if the move is valid
+		boolean valid=checkNextMove(posX,posY,release);
+		//if the move is valid, we start moving it
+		if(valid){
+			//if the pawn to move releases the other one beneath it we only move the pawn on top.
+			if(!release){
+				Pawn toSwap=this.grid[posX][posY].getPawn((this.grid[posX][posY].getNbPawns())-1);
+			}
+			//otherwise, we move all the pawns beneath
+			else{
+
+			}
+		}
+		//if the move is not valid, we dont do anything and simply return false,
+		//stating that the move hasn't been done
+		return moved;
 	}
 
 	/**
@@ -42,10 +58,11 @@ public class Board {
 	 * A pawn cannot move if it is eaten
 	 * @param posX the new x position of the pawn
 	 * @param posY the new y position of the pawn
+	 * @param release indicate if the pawn release (stop eating) another pawn
 	 * @return true if the move is possible, false otherwise.
 	 */
 	 //TODO : add the player who's moving the pawn
-	private boolean checkNextMove(int posX, int posY){
+	private boolean checkNextMove(int posX, int posY,boolean release){
 		boolean ret=false;
 		//First we wanna check if the new position exists on the grid
 		return ret;
