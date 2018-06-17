@@ -17,12 +17,35 @@ public class Board {
 		this.frozenList = new Pawn[12];
 	}
 
-	private boolean movePawn(int posX, int posY) {
-
+	/**
+	 * Move the pawn to the chosen location
+	 * The method checkNextMove checks if the new postion is valid for the pawn
+	 * @param posX the new X position of the pawn
+	 * @param posY the new Y position of the pawn
+	 * @param release indicate if the the pawn release (stop eating) another pawn
+	 * @return true if the move was possible and the pawn has been moved, false otherwise.
+	 */
+	public boolean movePawn(int posX, int posY, boolean release) {
+		return false;
 	}
 
-	private boolean checkNextMove(int posX, int posY) {
-
+	/**
+	 *	Checks if the new positions of the pawn are valid and if the move is possible
+	 * Rules :
+	 * A pawn can only move on the postions next to it
+	 * A pawn cannot move if it is frozen
+	 * A pawn can only eat a pawn that is onze under it
+	 * A pawn cannot eat a friendly pawn
+	 * A pawn can eat another pawn by releasing the pawn that it has eaten
+	 * A pawn cannot move if it is eaten
+	 * @param posX the new x position of the pawn
+	 * @param posY the new y position of the pawn
+	 * @return true if the move is possible, false otherwise.
+	 */
+	private boolean checkNextMove(int posX, int posY){
+		boolean ret=false;
+		//First we wanna check if the new position exists on the grid
+		return ret;
 	}
 
 	public String getPlayer1() {
