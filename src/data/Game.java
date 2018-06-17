@@ -9,7 +9,7 @@ public class Game {
 	private Player player2;
 	private int width;
 	private int height;
-	private Square[][] board;
+	private Board board;
 	private int nbOfPawns;
 
 
