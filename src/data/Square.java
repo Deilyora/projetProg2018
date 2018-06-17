@@ -22,6 +22,20 @@ public class Square{
       return this.pawns;
    }
    /**
+    * Gets one of the pawns of the square.
+    * @return one of the pawns
+    */
+   public Pawn getPawn(int index){
+      return this.pawns.get(index);
+   }
+   /**
+    * Gets the size of the ArrayList of pawns of the square.
+    * @return the size of the ArrayList of pawns
+    */
+   public int getNbPawns(){
+      return this.pawns.size();
+   }
+   /**
     * Adds a pawn to the square's ArrayList.
     * @param newPawn the pawn to add
     */
@@ -41,7 +55,7 @@ public class Square{
    public void removeAll(){
       this.pawns = new ArrayList<Pawn>();
    }
-   
+
    public String toString() {
 		String rep = null;
 		Pawn greaterPawn = null;
@@ -52,7 +66,7 @@ public class Square{
 		else {
 			rep = "-";
 		}
-		
+
 		if (greaterPawn != null) {
 			if (greaterPawn instanceof PawnS1) {
 				rep = "1";
@@ -67,7 +81,7 @@ public class Square{
 				rep = "4";
 			}
 		}
-		
+
 		return rep;
    }
 }
