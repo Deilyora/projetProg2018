@@ -22,12 +22,15 @@ public class Board {
 	 * Move the pawn to the chosen location.
 	 * The method checkNextMove checks if the new postion is valid for the pawn.
 	 * It freezes the pawn if it arrives on the last row.
-	 * @param posX the new X position of the pawn
+	 * @param oldX the current X position of the pawn
+	 * @param oldY the current Y position of the pawn
+	 * @param newX the new X position of the pawn
 	 * @param posY the new Y position of the pawn
 	 * @param release indicate if the the pawn release (stop eating) another pawn
+	 * @param thePlayer the player who's moving the pawn
 	 * @return true if the move was possible and the pawn has been moved, false otherwise.
 	 */
-	public boolean movePawn(int posX, int posY, boolean release) {
+	public boolean movePawn(int oldX,int oldY,int newX, int newY, boolean release,Player thePlayer) {
 		boolean moved=false;
 		//First we wanna check if the move is valid
 		boolean valid=checkNextMove(posX,posY,release);
@@ -56,13 +59,16 @@ public class Board {
 	 * A pawn cannot eat a friendly pawn
 	 * A pawn can eat another pawn by releasing the pawn that it has eaten
 	 * A pawn cannot move if it is eaten
-	 * @param posX the new x position of the pawn
-	 * @param posY the new y position of the pawn
-	 * @param release indicate if the pawn release (stop eating) another pawn
+	 * @param oldX the current X position of the pawn
+	 * @param oldY the current Y position of the pawn
+	 * @param newX the new X position of the pawn
+	 * @param posY the new Y position of the pawn
+	 * @param release indicate if the the pawn release (stop eating) another pawn
+	 * @param thePlayer the player who's moving the pawn
 	 * @return true if the move is possible, false otherwise.
 	 */
 	 //TODO : add the player who's moving the pawn
-	private boolean checkNextMove(int posX, int posY,boolean release){
+	private boolean checkNextMove(int oldX,int oldY,int newX, int newY, boolean release,Player thePlayer){
 		boolean ret=false;
 		//First we wanna check if the new position exists on the grid
 		return ret;
