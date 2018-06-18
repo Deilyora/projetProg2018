@@ -37,7 +37,6 @@ public class HumanPlayer extends Player {
 			while(!existing) {
 
 				System.out.println("Enter coordinate X of the pawn you want to move");
-				
 				currentX = in.nextInt();
 				System.out.println("Enter coordinate Y of the pawn you want to move");
 				currentY = in.nextInt();
