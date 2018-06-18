@@ -64,7 +64,7 @@ public class Square{
 			greaterPawn = pawns.get(nbPawns-1);
 		}
 		else {
-			rep = "-";
+			rep = " ";
 		}
 
 		if (greaterPawn != null) {
