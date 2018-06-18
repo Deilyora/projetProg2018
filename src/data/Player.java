@@ -63,6 +63,13 @@ public abstract class Player {
 		return this.playerName;
 	}
 	/**
+	 * Returns the game board
+	 * @return the game board
+	 */
+	public Board getBoard(){
+		return this.board;
+	}
+	/**
 	 * This method manages the next move of a player, whether or not it is a human player.
 	 */
 	public abstract void play();
