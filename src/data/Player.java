@@ -9,7 +9,7 @@ public abstract class Player {
 
 	private String playerName;
 	private Pawn[] pawnList;
-	private Pawn[] frozenList;
+	private ArrayList<Pawn> frozenList;
 	private Board board;
 
 	/**
@@ -21,7 +21,7 @@ public abstract class Player {
 	public Player(String name,Pawn[] pawns,Board board) {
 		this.playerName = name;
 		this.pawnList = pawns;
-		this.frozenList = new Pawn[12];
+		this.frozenList = new ArrayList<Pawn>;
 		this.board=board;
 	}
 
@@ -29,7 +29,7 @@ public abstract class Player {
 	 * Gets the array with the pawns that are still movable
 	 * @return the array of the pawns still movable
 	 */
-	public Pawn[] getPawnList() {
+	public ArrayList<Pawn> getPawnList() {
 		return this.pawnList;
 	}
 

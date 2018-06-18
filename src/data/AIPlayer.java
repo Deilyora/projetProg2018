@@ -18,15 +18,15 @@ public class AIPlayer extends Player {
 	* This method manages the next move of the IA, randomly generated.
 	*/
 	public void play() {
-		int rdPawn = (int) (Math.random() * this.getPawnList().length);
-		while (this.getPawnList()[rdPawn].getEaten() || this.getPawnList()[rdPawn].getFrozen()) {
-			rdPawn = (int) (Math.random() * this.getPawnList().length);
+		int rdPawn = (int) (Math.random() * this.getPawnList().size();
+		while (this.getPawnList().get(rdPawn).getEaten() || this.getPawnList().get(rdPawn).getFrozen()) {
+			rdPawn = (int) (Math.random() * this.getPawnList().size();
 		}
 		int[] newMove = {-1, 0, 1};
-		int rdPosX = (int) (this.getPawnList()[rdPawn].getPosX() + newMove[(int) Math.random() * 3]);
-		int rdPosY = (int) (this.getPawnList()[rdPawn].getPosY() + newMove[(int) Math.random() * 3]);
+		int rdPosX = (int) (this.getPawnList().get(rdPawn).getPosX() + newMove[(int) Math.random() * 3]);
+		int rdPosY = (int) (this.getPawnList().get(rdPawn).getPosY() + newMove[(int) Math.random() * 3]);
 		boolean release = false;
-		while (!this.getBoard().movePawn(this.getPawnList()[rdPawn].getPosX(), this.getPawnList()[rdPawn].getPosY(), rdPosX, rdPosY, release, this)) {
+		while (!this.getBoard().movePawn(this.getPawnList().get(rdPawn).getPosX(), this.getPawnList().get(rdPawn).getPosY(), rdPosX, rdPosY, release, this)) {
 			rdPosX = (int) (this.getPawnList()[rdPawn].getPosX() + newMove[(int) Math.random() * 3]);
 			rdPosY = (int) (this.getPawnList()[rdPawn].getPosY() + newMove[(int) Math.random() * 3]);
 		}
