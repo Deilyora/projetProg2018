@@ -10,8 +10,8 @@ public class HumanPlayer extends Player {
 	 * @param name the name chosen by the human player
 	 * @param pawnList the pawns of the player
 	 */
-	public HumanPlayer(String name,Pawn[] pawnList) {
-		super(name, pawnList);
+	public HumanPlayer(String name,Pawn[] pawnList,Board board) {
+		super(name, pawnList,board);
 	}
 
 

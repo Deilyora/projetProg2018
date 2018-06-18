@@ -10,6 +10,7 @@ public abstract class Player {
 	private String playerName;
 	private Pawn[] pawnList;
 	private Pawn[] frozenList;
+	private Board board;
 
 	/**
 	 * The constructor of the Player has two attribute, the name of that player and his pawns.
@@ -17,10 +18,11 @@ public abstract class Player {
 	 * @param name The name of the player
 	 * @param pawns the pawns of the player
 	 */
-	public Player(String name,Pawn[] pawns) {
+	public Player(String name,Pawn[] pawns,Board board) {
 		this.playerName = name;
 		this.pawnList = pawns;
 		this.frozenList = new Pawn[12];
+		this.board=board;
 	}
 
 	/**
