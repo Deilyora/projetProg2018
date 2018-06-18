@@ -37,11 +37,7 @@ public class SquareTest{
    public void testRemovePawn(){
       this.mySquare.addPawn(this.myPawn);
       this.mySquare.addPawn(this.myPawn2);
-<<<<<<< HEAD
       this.mySquare.removePawn();
-=======
-      this.pawns.removePawn();
->>>>>>> 9740fd62058a23cb69aa0c7f093609bc19741b45
       ArrayList<Pawn>pawns=this.mySquare.getPawns();
       ArrayList<Pawn>compare=new ArrayList<Pawn>();
       compare.add(this.myPawn);
