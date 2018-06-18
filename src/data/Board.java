@@ -97,7 +97,7 @@ public class Board {
 	 * @return the board height
 	 */
 	public int getHeight() {
-		return this.Height;
+		return this.height;
 	}
 	/**
 	 */
