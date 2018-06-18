@@ -11,8 +11,8 @@ public class SquareTest{
    @Before()
    protected void setUp(){
       mySquare=new Square();
-      myPawn=new Pawn(0,0,false,false);
-      myPawn2=new Pawn(0,0,false,false);
+      myPawn=new PawnS1(0,0,false,false);
+      myPawn2=new PawnS1(0,0,false,false);
    }
    @Test()
    //Checks if the ArrayList is properly initialized
@@ -24,10 +24,10 @@ public class SquareTest{
    @Test()
    //Checks if a pawn is properly added to the ArrayList
    public void testAddPawn(){
-      this.mySquare.add(this.myPawn);
+      this.mySquare.addPawn(this.myPawn);
       ArrayList<Pawn>pawns=this.mySquare.getPawns();
       ArrayList<Pawn>compare=new ArrayList<Pawn>();
-      compare.add(this.mySquare);
+      compare.add(this.myPawn);
       assertTrue(pawns.equals(compare));
    }
 
@@ -35,20 +35,21 @@ public class SquareTest{
    //Checks if the last pawn added is properly removed
    //It should only remove the last one added
    public void testRemovePawn(){
-      this.mySquare.add(this.myPawn);
-      this.mySquare.add(this.myPawn2);
+      this.mySquare.addPawn(this.myPawn);
+      this.mySquare.addPawn(this.myPawn2);
+      this.pawns.removePawn();
       ArrayList<Pawn>pawns=this.mySquare.getPawns();
       ArrayList<Pawn>compare=new ArrayList<Pawn>();
-      compare.add(this.mySquare);
-      this.pawns.removePawn();
+      compare.add(this.myPawn);
+
       assertTrue(pawns.equals(compare));
    }
 
    @Test()
    //This should remove all the pawns.
    public void removeAll(){
-      this.mySquare.add(this.myPawn);
-      this.mySquare.add(this.myPawn2);
+      this.mySquare.addPawn(this.myPawn);
+      this.mySquare.addPawn(this.myPawn2);
       ArrayList<Pawn>pawns=this.mySquare.getPawns();
       ArrayList<Pawn>compare=new ArrayList<Pawn>();
       assertTrue(pawns.equals(compare));
