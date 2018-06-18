@@ -24,8 +24,8 @@ public class HumanPlayer extends Player {
 		boolean existing = false;
 		int newX;
 		int newY;
-		int actualX;
-		int actualY;
+		int currentX;
+		int currentY;
 		Pawn thePawn = null;
 		int goodPawn = -1;
 		Pawn[] thisPawnList = getPawnList();
@@ -37,11 +37,11 @@ public class HumanPlayer extends Player {
 
 				System.out.println("Enter coordinate X of the pawn you want to move");
 				Scanner in = new Scanner(System.in);
-				actualX = in.nextInt();
+				currentX = in.nextInt();
 				System.out.println("Enter coordinate Y of the pawn you want to move");
-				actualY = in.nextInt();
+				currentY = in.nextInt();
 				for (int i = 0; i < thisPawnList.length; i++) {
-					if (thisPawnList[i].getPosX() == actualX && thisPawnList[i].getPosY() == actualY && !thisPawnList[i].getEaten() && !thisPawnList[i].getFrozen() ) {
+					if (thisPawnList[i].getPosX() == currentX && thisPawnList[i].getPosY() == currentY && !thisPawnList[i].getEaten() && !thisPawnList[i].getFrozen() ) {
 						existing = true;
 						thePawn = thisPawnList[i];
 						goodPawn = i;
@@ -69,7 +69,7 @@ public class HumanPlayer extends Player {
 					releasing = false;
 				}
 			}
-			if (thisPawnList[goodPawn].movePawn(newX, newY, releasing)) {
+			if (thisPawnList[goodPawn].movePawn(currentX, currentY, newX, newY, releasing, this)) {
 				playable = true;
 			}
 			else {
