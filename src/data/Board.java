@@ -108,7 +108,7 @@ public class Board {
 		return ret;
 	}
 	/**
-	 * Checks whether or not a pawn with given cooa
+	 * Checks whether or not a pawn with given coordinates is frozen.
 	 */
 	private boolean isFrozen(int x,int x){
 
