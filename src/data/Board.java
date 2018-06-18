@@ -1,5 +1,5 @@
 package data;
-
+import java.util.ArrayList;
 /**
  * This class represents the game board.
  * It represent the game with a 2D array of squares.
@@ -33,16 +33,26 @@ public class Board {
 	public boolean movePawn(int oldX,int oldY,int newX, int newY, boolean release,Player thePlayer) {
 		boolean moved=false;
 		//First we wanna check if the move is valid
-		boolean valid=checkNextMove(posX,posY,release);
+		boolean valid=checkNextMove(oldX,oldY,newX,newY,release,thePlayer);
 		//if the move is valid, we start moving it
 		if(valid){
-			//if the pawn to move releases the other one beneath it we only move the pawn on top.
+			//if the pawn to move releases the other one beneath it we only move the pawn on top
 			if(!release){
-				Pawn toSwap=this.grid[posX][posY].getPawn((this.grid[posX][posY].getNbPawns())-1);
+				Pawn toSwap=this.grid[oldX][oldY].getPawn((this.grid[oldX][oldY].getNbPawns())-1);
+				this.grid[oldX][oldY].removePawn();
+				toSwap.setPosX(newX);
+				toSwap.setPosY(newY);
+				this.grid[newX][newY].addPawn(toSwap);
 			}
 			//otherwise, we move all the pawns beneath
 			else{
-
+				ArrayList<Pawn> pawnsToSwap=this.grid[oldX][oldY].getPawns();
+				this.grid[oldX][oldY].removeAll();
+				for(Pawn p : pawnsToSwap){
+					p.setPosX(newX);
+					p.setPosY(newY);
+					this.grid[newX][newY].addPawn(p);
+				}
 			}
 		}
 		//if the move is not valid, we dont do anything and simply return false,
