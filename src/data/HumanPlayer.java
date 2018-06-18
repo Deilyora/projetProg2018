@@ -31,12 +31,13 @@ public class HumanPlayer extends Player {
 		Pawn[] thisPawnList = getPawnList();
 		String yn = null;
 		boolean releasing =false;
+		Scanner in = new Scanner(System.in);
 		System.out.println(getPlayerName()+"'s turn :");
 		while (!playable) {
 			while(!existing) {
 
 				System.out.println("Enter coordinate X of the pawn you want to move");
-				Scanner in = new Scanner(System.in);
+				
 				currentX = in.nextInt();
 				System.out.println("Enter coordinate Y of the pawn you want to move");
 				currentY = in.nextInt();
@@ -53,7 +54,6 @@ public class HumanPlayer extends Player {
 				}
 			}
 			System.out.println("Enter the new coordinate X of the pawn you want to move");
-			Scanner in = new Scanner(System.in);
 			newX = in.nextInt();
 			System.out.println("Enter the new coordinate Y of the pawn you want to move");
 			newY = in.nextInt();
