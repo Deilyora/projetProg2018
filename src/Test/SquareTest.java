@@ -9,7 +9,7 @@ public class SquareTest{
    private Pawn myPawn2;
 
    @Before()
-   protected void setUp(){
+   public void setUp(){
       mySquare=new Square();
       myPawn=new PawnS1(0,0,false,false);
       myPawn2=new PawnS1(0,0,false,false);
@@ -47,17 +47,19 @@ public class SquareTest{
 
    @Test()
    //This should remove all the pawns.
-   public void removeAll(){
+   public void testRemoveAll(){
       this.mySquare.addPawn(this.myPawn);
       this.mySquare.addPawn(this.myPawn2);
+      this.mySquare.removeAll();
       ArrayList<Pawn>pawns=this.mySquare.getPawns();
       ArrayList<Pawn>compare=new ArrayList<Pawn>();
       assertTrue(pawns.equals(compare));
    }
 
 
+
    @After()
-   protected void tearDown(){
+   public void tearDown(){
       mySquare=null;
       myPawn=null;
       myPawn2=null;
