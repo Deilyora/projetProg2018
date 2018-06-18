@@ -85,22 +85,6 @@ public class Board {
 	}
 
 	/**
-	 * Returns player1
-	 * @return player1
-	 */
-	public String getPlayer1() {
-		return this.player1;
-	}
-
-	/**
-	 * Returns player2
-	 * @return player2
-	 */
-	public String getPlayer2() {
-		return this.player2;
-	}
-
-	/**
 	 * Returns the board width
 	 * @return the board width
 	 */
@@ -115,4 +99,6 @@ public class Board {
 	public int getHeight() {
 		return this.Height;
 	}
+	/**
+	 */
 }
