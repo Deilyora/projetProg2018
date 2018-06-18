@@ -30,16 +30,34 @@ public class ChooseGame {
 	 * This method creates a new game.
 	 */
 	public void initializeGame() {
-		String player1;
-		String player2;
+		String playerName1;
+		String playeName2;
+		String mode;
+		Mode theMode;
 		int width = -1;
 		int height = -1;
 		int nbOfPawns = -1;
 		Scanner sc = new Scanner(System.in);
+		System.out.println("Gamemode (Human or Automatic) ? HH/HA/AA");
+		mode = sc.nextLine();
+		while (!((mode.equals("HH") || mode.equals("HA") || mode.equals("AA"))) {
+			System.out.println("HH/HA/AA");
+			mode = sc.nextLine();
+		}
+		if (mode.equals("HH") {
+			theMode = Mode.HH;
+		}
+		else if(mode.equals("HA") {
+			theMode = Mode.HA;
+		}
+		else {
+			theMode = Mode.AA;
+		}
+			
 		System.out.println("Enter the name of player 1");
-		player1 = sc.nextLine();
+		playerName1 = sc.nextLine();
 		System.out.println("Enter the name of player 2");
-		player2 = sc.nextLine();		
+		playerName2 = sc.nextLine();		
 		System.out.println("width of the board ? Type 0 for default");
 		while (!(width > 0)) {
 			System.out.println("You need enter a positive number");
@@ -68,13 +86,10 @@ public class ChooseGame {
 			}
 			nbOfPawns = sc.nextInt();
 		}
-		this.width = width;
-		this.height = height;
-		this.player1 = player1;
-		this.player2 = player2;
-		this.nbOfPawns = nbOfPawns;
+
 		Board theBoard = new Board(this.width, this.height);
-		this.board = theBoard;
+		
+		Game theGame = new Game(player1, player2,
 	}
 	
 	private void loadGame(String filename) {
