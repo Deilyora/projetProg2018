@@ -20,7 +20,7 @@ public class Game {
 	 * @param height
 	 * @param vsIA
 	 */
-	public Game(int width, int height, boolean vsIA) {
+	public Game(Player player1, Player player2,int width, int height,Board board, int nbOfPawns, boolean vsIA) {
 		// TODO - implement Game.Game
 		throw new UnsupportedOperationException();
 	}
