@@ -4,9 +4,16 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.io.*;
 
+/**
+ * This class is used to create or load a game
+ * the user just have to choose and the game is created/loadedGame
+ */
 public class ChooseGame {
 	
-	
+	/**
+	 * The constructor of chooseGame just ask the user to choose between creating or loading a game.
+	 * If the player choose to load a game, he's asked the name of the save
+	 */
 	public ChooseGame() {
 		System.out.println("Do you want to create a new Game or load one ? c/l");
 		Scanner sc = new Scanner(System.in);
