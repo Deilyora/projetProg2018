@@ -22,7 +22,7 @@ public abstract class Player {
 	public Player(String name,ArrayList<Pawn> pawns,Board board) {
 		this.playerName = name;
 		this.pawnList = pawns;
-		this.frozenList = new ArrayList<Pawn>;
+		this.frozenList = new ArrayList<Pawn>();
 		this.board=board;
 	}
 
@@ -53,7 +53,7 @@ public abstract class Player {
 	 * Replaces the array of frozen pawns with a new one
 	 * @param frozen the new array of pawns
 	 */
-	public void setFrozenList(ArrayList<Pawn>) {
+	public void setFrozenList(ArrayList<Pawn> frozen) {
 		this.frozenList = frozen;
 	}
 	/**

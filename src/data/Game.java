@@ -66,10 +66,9 @@ public class Game {
 		
 	
 	/**
-	 * This method launches the game from a file's saved game
-	 * @param fileName the name of the saved file's game
+	 * This method launches the game
 	 */
-	public void runGame(String fileName) {
+	public void runGame() {
 		
 		
 	}

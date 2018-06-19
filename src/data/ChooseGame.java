@@ -1,17 +1,18 @@
 package data;
 
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.io.*;
 
 public class ChooseGame {
 	
-	Game theGame;
 	
 	public ChooseGame() {
 		System.out.println("Do you want to create a new Game or load one ? c/l");
 		Scanner sc = new Scanner(System.in);
 		String rep = sc.nextLine();
 		String file;
-		while(!((rep.equals("c") || (rep.equals("l"))) {
+		while(!((rep.equals("c") || (rep.equals("l"))))) {
 			System.out.println("Create or load ? c/l");
 			rep = sc.nextLine();
 		}
@@ -27,11 +28,11 @@ public class ChooseGame {
 	}
 	
 	/**
-	 * This method creates a new game.
+	 * This method creates a new game with the parameters entered by the user.
 	 */
 	public void initializeGame() {
 		String playerName1;
-		String playeName2;
+		String playerName2;
 		String mode;
 		Mode theMode;
 		int width = -1;
@@ -40,14 +41,14 @@ public class ChooseGame {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Gamemode (Human or Automatic) ? HH/HA/AA");
 		mode = sc.nextLine();
-		while (!((mode.equals("HH") || mode.equals("HA") || mode.equals("AA"))) {
+		while (!((mode.equals("HH") || mode.equals("HA") || mode.equals("AA")))) {
 			System.out.println("HH/HA/AA");
 			mode = sc.nextLine();
 		}
-		if (mode.equals("HH") {
+		if (mode.equals("HH")) {
 			theMode = Mode.HH;
 		}
-		else if(mode.equals("HA") {
+		else if(mode.equals("HA")) {
 			theMode = Mode.HA;
 		}
 		else {
@@ -58,7 +59,7 @@ public class ChooseGame {
 		playerName1 = sc.nextLine();
 		System.out.println("Enter the name of player 2");
 		playerName2 = sc.nextLine();		
-		System.out.println("width of the board ? Type 0 for default");
+/*		System.out.println("width of the board ? Type 0 for default");
 		while (!(width > 0)) {
 			System.out.println("You need enter a positive number");
 			while (!sc.hasNextInt()) {
@@ -86,13 +87,32 @@ public class ChooseGame {
 			}
 			nbOfPawns = sc.nextInt();
 		}
+		//if the player choose default parameters, they are initialized here
+		if (width == 0) {
+			width = 8;
+		}
+		if (height == 0}
+			height = 7;
+		}
 
-		Board theBoard = new Board(this.width, this.height);
-		
-		Game theGame = new Game(player1, player2,
+*/
+		Game theGame = new Game(playerName1, playerName2, theMode);
 	}
 	
 	private void loadGame(String filename) {
+		try {
+			ObjectInputStream in = new ObjectInputStream(new FileInputStream(filename));
+			Game loadedGame = (Game) in.readObject();
+			loadGame.runGame();
+		}
+		catch (FileNotFoundException e) {
+			System.out.println("Error - File not found :"+filename);
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+			
+			
 		
 	}
 	
