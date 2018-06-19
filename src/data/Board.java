@@ -81,18 +81,18 @@ public class Board {
 	private boolean checkNextMove(int oldX,int oldY,int newX, int newY, boolean release,Player thePlayer){
 		boolean ret=false;
 		//First we wanna check if the pawn on top belongs to the player
-		if(){
+		if(this.isMine(oldX,oldY,thePlayer)){
 			//Then we wanna check if the pawn isn't frozen
-			if(){
+			if(!(this.isFrozen(oldX,oldY))){
 				//We wanna check if the new position exists on the grid
 				if(newX>=0 && newX<height && newY>=0 && newY<width){
 					//We wanna check if the new position is right next to the the current one
-					if(){
+					if(this.isNextTo(oldX,oldY,newX,newY)){
 						//We wanna check if there is a pawn on the new square
-						if(){
+						if(this.grid[newX][newY].getPawns().size()!=0){
 							//We wanna check if we are relasing the pawns.
 							//If not, the move can't be done
-							if(){
+							if(release){
 								//We wanna check if the new pawn is eatable
 								if(){
 									ret=true;
@@ -128,11 +128,12 @@ public class Board {
 		return ret;
 	}
 	/**
-	 * Checks wether or not the pawn on top of the square with given
-	 * coordinates belongs to the current player.
-	 * @param x the x coordinate
-	 * @param y the y coordinate
-	 */
+	* Checks wether or not the pawn on top of the square with given
+	* coordinates belongs to the current player.
+	* @param x the x coordinate
+	* @param y the y coordinate
+	* @return true if it belongs to the player, false otherwise
+	*/
 	private boolean isMine(int x,int y,Player thePlayer){
 		boolean ret=false;
 		ArrayList<Pawn> pawn=thePlayer.getPawnList();
@@ -141,6 +142,45 @@ public class Board {
 			if(p.equals(onTop)){
 				ret=true;
 			}
+		}
+		return ret;
+	}
+	/**
+	* Checks whether or not the new coordinates are right next to the old one.
+	* @param oldX the current X position of the pawn
+	* @param oldY the current Y position of the pawn
+	* @param newX the new X position of the pawn
+	* @param posY the new Y position of the pawn
+	* @return true if they're right next to one another, false otherwise
+	*/
+	private boolean isNextTo(int oldX,int oldY,int newX, int newY){
+		ret=false;
+		if(newX==oldX+1 || newX==oldX-1 || newX==oldX){
+			if(newY==oldY+1 || newY==oldY+1 || newY==oldY){
+				ret=true;
+			}
+		}
+		return ret;
+	}
+	/**
+	* Checks whether or not pawn A can eat pawn B.
+	* We assume pawn A belongs to player A.
+	* @param aX X coordinate of pawn A
+	* @param aY Y coordinate of pawn A
+	* @param bX X coordinate of pawn B
+	* @param bY Y coordinate of pawn B
+	*/
+	private boolean isEatable(int aX,int aY,int bX, int bY,Player playerA){
+		ret=true;
+		boolean bBelongsToA=false;
+		ArrayList<Pawn> pawnList=playerA.getPawns();
+		for(Pawn p : pawnList){
+			if(p.getPosX()==bX && p.getPosY()==bY){
+				bBelongsToA=true;
+			}
+		}
+		if(bBelongsToA){
+
 		}
 	}
 	/**
