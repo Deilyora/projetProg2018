@@ -80,38 +80,68 @@ public class Board {
 	*/
 	private boolean checkNextMove(int oldX,int oldY,int newX, int newY, boolean release,Player thePlayer){
 		boolean ret=false;
-		//First we wanna check if the pawn is'nt frozen or eaten
+		//First we wanna check if the pawn on top belongs to the player
 		if(){
-			//Then we wanna check if the new position exists on the grid
-			if(newX>=0 && newX<height && newY>=0 && newY<width){
-				//We wanna check if the new position is right next to the the current one
-				if(){
-					//We wanna check if there is a pawn on the new square
+			//Then we wanna check if the pawn isn't frozen
+			if(){
+				//We wanna check if the new position exists on the grid
+				if(newX>=0 && newX<height && newY>=0 && newY<width){
+					//We wanna check if the new position is right next to the the current one
 					if(){
-						//We wanna check if we are relasing the pawns.
-						//If not, the move can't be done
+						//We wanna check if there is a pawn on the new square
 						if(){
-							//We wanna check if the new pawn is eatable
+							//We wanna check if we are relasing the pawns.
+							//If not, the move can't be done
 							if(){
-								ret=true;
+								//We wanna check if the new pawn is eatable
+								if(){
+									ret=true;
+								}
 							}
 						}
-					}
-					//if there isn't we can move it
-					else{
-						ret=true;
+						//if there isn't we can move it
+						else{
+							ret=true;
+						}
 					}
 				}
 			}
+		}
 
+		return ret;
+	}
+	/**
+	* Checks whether or not a pawn with given coordinates is frozen.
+	* @param x the x coordinate
+	* @param y the y coordinate
+	* @return true if it's frozen, false otherwise
+	*/
+	private boolean isFrozen(int x,int y){
+		ret=false;
+		int i=0;
+		while(i<this.frozenList.length && !ret){
+			if(this.frozenList[i].getX()==x && this.frozenList[i].getY==y){
+				ret=true;
+			}
+			i++;
 		}
 		return ret;
 	}
 	/**
-	 * Checks whether or not a pawn with given coordinates is frozen.
+	 * Checks wether or not the pawn on top of the square with given
+	 * coordinates belongs to the current player.
+	 * @param x the x coordinate
+	 * @param y the y coordinate
 	 */
-	private boolean isFrozen(int x,int x){
-
+	private boolean isMine(int x,int y,Player thePlayer){
+		boolean ret=false;
+		ArrayList<Pawn> pawn=thePlayer.getPawnList();
+		Pawn onTop=this.grid[x][y].getPawn((this.grid[x][y].getNbPawns())-1);
+		for(Pawn p : pawn){
+			if(p.equals(onTop)){
+				ret=true;
+			}
+		}
 	}
 	/**
 	* Returns the board width
