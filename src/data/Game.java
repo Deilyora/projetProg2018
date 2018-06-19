@@ -20,10 +20,9 @@ public class Game {
 	 * @param playerName2 the name of the player 2
 	 * @param width the width of the board
 	 * @param height the height of the board 
-	 * @param nbOfPawns the number of pawns per player
 	 * @param mode the gamemode (AI/Human)
 	 */
-	public Game(String playerName1, String playerName2, int width, int height, int nbOfPawns, Mode theMode) {
+	public Game(String playerName1, String playerName2, int width, int height, Mode theMode) {
 		// TODO - implement Game.Game
 		throw new UnsupportedOperationException();
 	}
