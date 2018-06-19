@@ -14,13 +14,13 @@ public class Game {
 
 
 	/**
-	 * The Game constructor : it chooses a size for the board and create this board
-	 * It choose if we play against the AI
-	 * @param width
-	 * @param height
-	 * @param vsIA
+	 * The Game constructor : it gets everything needed to create the game :
+	 * Board, size, gamemode, name of players, mode. It then creates the game with these parameters
+	 * @param playerName1 the name of the player 1
+	 * @param playerName2 the name of the player 2
+	 * @param mode the gamemode (AI/Human)
 	 */
-	public Game(Player player1, Player player2,int width, int height,Board board, int nbOfPawns, boolean vsIA) {
+	public Game(String playerName1, String playerName2, Mode theMode) {
 		// TODO - implement Game.Game
 		throw new UnsupportedOperationException();
 	}
