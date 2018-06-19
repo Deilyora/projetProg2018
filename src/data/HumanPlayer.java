@@ -24,8 +24,8 @@ public class HumanPlayer extends Player {
 		boolean existing = false;
 		int newX;
 		int newY;
-		int currentX;
-		int currentY;
+		int currentX=-1;
+		int currentY=-1;
 		Pawn thePawn = null;
 		int goodPawn = -1;
 		ArrayList<Pawn> thisPawnList = getPawnList();
