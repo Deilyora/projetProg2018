@@ -68,7 +68,7 @@ public class HumanPlayer extends Player {
 					releasing = false;
 				}
 			}
-			if (thisPawnList[goodPawn].movePawn(currentX, currentY, newX, newY, releasing, this)) {
+			if (thisPawnList[goodPawn].movePawn(currentX, currentY, newX, newY, releasing, this) && !(newX == currentX && newY == currentY) ) {
 				playable = true;
 			}
 			else {
