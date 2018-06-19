@@ -64,14 +64,14 @@ public class Square{
     * @return the x coordinate
     */
    public int getX(){
-      return this.x;
+      return this.posX;
    }
    /**
     * Returns the y coordinate of the square
     * @return the y coordinate
     */
    public int getY(){
-      return this.y;
+      return this.posY;
    }
    /**
     * Returns the top pawn as a number
