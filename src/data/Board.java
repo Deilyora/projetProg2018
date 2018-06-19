@@ -9,7 +9,7 @@ public class Board {
 	private int width;
 	private int height;
 	private Square[][] grid;
-	private Square[] frozenList;
+	private ArrayList<Square> frozenList;
 	public static final String ANSI_RESET = "\033[0m";
 	public static final String ANSI_GREEN = "\u001B[32m";
 	public static final String ANSI_RED = "\u001B[31m";
@@ -18,7 +18,7 @@ public class Board {
 		this.width = width;
 		this.height = height;
 		this.grid = new Square[height][width];
-		this.frozenList = new Square[12];
+		this.frozenList = new ArrayList<Square>();
 	}
 
 	/**
@@ -126,11 +126,10 @@ public class Board {
 	private boolean isFrozen(int x,int y){
 		boolean ret=false;
 		int i=0;
-		while(i<this.frozenList.length && !ret){
-			if(this.frozenList[i].getX()==x && this.frozenList[i].getY()==y){
+		for(Square s : this.frozenList){
+			if(s.getX()==x && s.getY()==y){
 				ret=true;
 			}
-			i++;
 		}
 		return ret;
 	}
@@ -209,9 +208,9 @@ public class Board {
 	* @param player the player
 	* @return true if it should be frozen,false otherwise
 	*/
-	private boolean toFreeze(x,y,player){
+	private boolean toFreeze(int x,int y,Player player){
 		boolean ret=false;
-		if(player.getTop){
+		if(player.getTop()){
 			for(int j=0;j<this.width;j++){
 				if(x==this.height-1 && y==j){
 					ret=true;
@@ -225,6 +224,7 @@ public class Board {
 				}
 			}
 		}
+		return ret;
 	}
 	/**
 	* Returns the board width
@@ -246,24 +246,20 @@ public class Board {
 	public int getPoints(Player thePlayer){
 		return 0;
 	}
-	
+
 	/**
-	 * Display the board with the pawns, columns, score, and players differenciated by colors
-	 * @return The String with the display
-	 */
+	* Display the board with the pawns, columns, score, and players differenciated by colors
+	* @return The String with the display
+	*/
 	public String toString() {
 		//i = vertical j = horizontal
-		String rep = "";
 		for (int i = 0; i < this.height ; i++) {
-			for (int j = 0; j < this.height; j++) {
-				rep = rep+"|"+ grid[i][j];
+			for (int j = 0; j < this.width; j++) {
+				grid[i][j].toString();
 			}
-			rep = rep+"|\n";
 		}
-		return rep;
-		
 	}
-	
 
-	
+
+
 }
