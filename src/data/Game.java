@@ -8,10 +8,8 @@ public class Game implements Serializable {
 
 	private Player player1;
 	private Player player2;
-	private int width;
-	private int height;
+	private Player current;
 	private Board board;
-	private int nbOfPawns;
 
 
 	/**
@@ -63,17 +61,33 @@ public class Game implements Serializable {
 		
 	
 	/**
-	 * This method launches the game
+	 * This method runs the game
 	 */
 	public void runGame() {
+		if (current == null) {
+			current = this.player2;
+		}
 		
-		
+		//if someones has 12 points; if both players cannot move; 
+		while (board.getPoints(current) < 12) {
+
+			else if (current == player1) {
+				current = player2;
+			}
+			else {
+				current = player1;
+			}
+			System.out.println(current.getPlayerName()+"'s turn");
+			current.play();				
+		}
+		endGame();
 	}
 	/**
 	 * This method ends the game.
 	 */
 	public void endGame() {
-		
+		System.out.println(current+" won the game by being the first to score 12 points !");
+		System.exit(0);
 	}
 	/**
 	 * This method saves the game in a file.
