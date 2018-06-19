@@ -5,14 +5,18 @@ import java.util.ArrayList;
  * It contains an ArrayList of pawn, which are the pawns on this square. The last element in the ArrayList is the pawn on top of the other.
  */
 public class Square{
+   private int posX;
+   private int posY;
    private ArrayList<Pawn> pawns;
 
    /**
     * The constructor of Square.
     * It creates a new pawn ArrayList.
     */
-   public Square(){
+   public Square(int x,int y){
 		this.pawns = new ArrayList<Pawn>();
+      this.posX=x;
+      this.posY=y;
    }
    /**
     * Gets the ArrayList of pawns of the square.
@@ -55,7 +59,24 @@ public class Square{
    public void removeAll(){
       this.pawns = new ArrayList<Pawn>();
    }
-
+   /**
+    * Returns the x coordinate of the square
+    * @return the x coordinate
+    */
+   public int getX(){
+      return this.x;
+   }
+   /**
+    * Returns the y coordinate of the square
+    * @return the y coordinate
+    */
+   public int getY(){
+      return this.y;
+   }
+   /**
+    * Returns the top pawn as a number
+    * @return the number
+    */
    public String toString() {
 		String rep = null;
 		Pawn greaterPawn = null;
