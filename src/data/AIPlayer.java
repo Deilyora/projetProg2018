@@ -10,8 +10,8 @@ public class AIPlayer extends Player {
 	* The constructor of AIPlayer. The name of the player is directly written in the class.
 	* @param the pawns of the player
 	*/
-	public AIPlayer(ArrayList<Pawn> pawnList,Board board) {
-		super("Computer",pawnList,board);
+	public AIPlayer(ArrayList<Pawn> pawnList,Board board,boolean top) {
+		super("Computer",pawnList,board,top);
 
 	}
 
