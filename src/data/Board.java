@@ -153,7 +153,7 @@ public class Board {
 	* @return true if they're right next to one another, false otherwise
 	*/
 	private boolean isNextTo(int oldX,int oldY,int newX, int newY){
-		ret=false;
+		boolean ret=false;
 		if(newX==oldX+1 || newX==oldX-1 || newX==oldX){
 			if(newY==oldY+1 || newY==oldY+1 || newY==oldY){
 				ret=true;
@@ -173,11 +173,12 @@ public class Board {
 		boolean ret=false;
 		boolean bBelongsToA=false;
 		Pawn a=this.grid[aX][aY].getPawn((this.grid[aX][aY].getNbPawns())-1);
-		ArrayList<Pawn> pawnList=playerA.getPawns();
+		Pawn b=null;
+		ArrayList<Pawn> pawnList=playerA.getPawnList();
 		for(Pawn p : pawnList){
 			if(p.getPosX()==bX && p.getPosY()==bY){
 				bBelongsToA=true;
-				Pawn b=this.grid[aX][aY].getPawn((this.grid[aX][aY].getNbPawns())-1);
+				b=this.grid[aX][aY].getPawn((this.grid[aX][aY].getNbPawns())-1);
 			}
 		}
 		if(!bBelongsToA){
