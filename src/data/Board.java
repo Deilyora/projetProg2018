@@ -33,7 +33,7 @@ public class Board {
 	* @param thePlayer the player who's moving the pawn
 	* @return true if the move was possible and the pawn has been moved, false otherwise.
 	*/
-	//TODO: Freeze the pawn if it arrives on the last row
+	//TODO: Add frozen pawn to player's frozenList
 	public boolean movePawn(int oldX,int oldY,int newX, int newY, boolean release,Player thePlayer) {
 		boolean moved=false;
 		//First we wanna check if the move is valid
