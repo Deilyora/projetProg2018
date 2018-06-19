@@ -253,11 +253,14 @@ public class Board {
 	*/
 	public String toString() {
 		//i = vertical j = horizontal
+		String rep = "";
 		for (int i = 0; i < this.height ; i++) {
 			for (int j = 0; j < this.width; j++) {
-				grid[i][j].toString();
+				rep = rep + "|"+ grid[i][j];
 			}
+			rep = rep + "|\n";
 		}
+		return rep;
 	}
 
 
