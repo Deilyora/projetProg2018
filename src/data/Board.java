@@ -60,7 +60,11 @@ public class Board {
 			}
 			//Checks whether or not the pawn arrived on the last row and should be frozen
 			if(this.toFreeze(newX,newY,thePlayer)){
-
+				this.frozenList.add(this.grid[newX][newY]);
+				ArrayList<Pawn>toSet=this.grid[newX][newY].getPawns();
+				for(Pawn p : toSet){
+					p.setFrozen(true);
+				}
 			}
 		}
 
