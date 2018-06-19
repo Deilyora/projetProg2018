@@ -1,4 +1,5 @@
 package data;
+import java.util.ArrayList;
 /**
  * This class manages the 2 players in the game. It's abstract because there's 2 subtypes
  * of players : human and IA. It contains the name of the player, and 2 lists of pawns, one with the pawns that are still
@@ -8,7 +9,7 @@ package data;
 public abstract class Player {
 
 	private String playerName;
-	private Pawn[] pawnList;
+	private ArrayList<Pawn> pawnList;
 	private ArrayList<Pawn> frozenList;
 	private Board board;
 
@@ -18,7 +19,7 @@ public abstract class Player {
 	 * @param name The name of the player
 	 * @param pawns the pawns of the player
 	 */
-	public Player(String name,Pawn[] pawns,Board board) {
+	public Player(String name,ArrayList<Pawn> pawns,Board board) {
 		this.playerName = name;
 		this.pawnList = pawns;
 		this.frozenList = new ArrayList<Pawn>;
@@ -37,7 +38,7 @@ public abstract class Player {
 	 * Changes the array of movable pawns with a new one
 	 * @param pawnList The new array of pawns
 	 */
-	public void setPawnList(Pawn[] pawnList) {
+	public void setPawnList(ArrayList<Pawn> pawnList) {
 		this.pawnList = pawnList;
 	}
 
@@ -45,14 +46,14 @@ public abstract class Player {
 	 * Gets the array with the frozen pawns of the player
 	 * @return the array with the frozen pawns
 	 */
-	public Pawn[] getFrozenList() {
+	public ArrayList<Pawn> getFrozenList() {
 		return this.frozenList;
 	}
 	/**
 	 * Replaces the array of frozen pawns with a new one
 	 * @param frozen the new array of pawns
 	 */
-	public void setFrozenList(Pawn[] frozen) {
+	public void setFrozenList(ArrayList<Pawn>) {
 		this.frozenList = frozen;
 	}
 	/**
