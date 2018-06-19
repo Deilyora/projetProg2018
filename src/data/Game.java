@@ -3,7 +3,7 @@ import java.util.Scanner;
 /**
  * This class is used to define and manage a game. It creates 2 players and the board as a grid of squares.
  */
-public class Game {
+public class Game implements Serializable {
 
 	private Player player1;
 	private Player player2;
@@ -59,10 +59,6 @@ public class Game {
 		this.player2 = player2;
 	}
 
-
-		
-		
-		
 		
 	
 	/**
@@ -76,14 +72,28 @@ public class Game {
 	 * This method ends the game.
 	 */
 	public void endGame() {
-
+		
 	}
 	/**
 	 * This method saves the game in a file.
 	 * @return true if the game has been saved correctly
 	 */
-	public boolean saveGame() {
-		return false;
+	public void saveGame(String fileName) {
+		try {
+			ObjectOutputStream out =  new ObjectOutputStream(new FileInputStream("../save/"+filename);
+			out.writeObject(this);
+			out.close();
+			System.exit();
+		}
+		catch (FileNotFoundException e) {
+			System.out.println("Error - unknown file : "+filename);
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+			
+		
+		
 	}
 
 }

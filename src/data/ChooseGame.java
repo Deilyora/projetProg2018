@@ -111,6 +111,7 @@ public class ChooseGame {
 			ObjectInputStream in = new ObjectInputStream(new FileInputStream(filename));
 			Game loadedGame = (Game) in.readObject();
 			loadGame.runGame();
+						
 		}
 		catch (FileNotFoundException e) {
 			System.out.println("Error - File not found :"+filename);
@@ -119,7 +120,7 @@ public class ChooseGame {
 			e.printStackTrace();
 		}
 			
-			
+
 		
 	}
 	
