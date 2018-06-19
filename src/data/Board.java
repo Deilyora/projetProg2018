@@ -252,13 +252,17 @@ public class Board {
 	 * @return The String with the display
 	 */
 	public String toString() {
-	//i = vertical j = horizontal
-	for (int i = 0; i < 7 ; i++) {
-		for (int j = 0; j < 8; j++) {
-			grid[i][j].toString();
+		//i = vertical j = horizontal
+		String rep = "";
+		for (int i = 0; i < this.height ; i++) {
+			for (int j = 0; j < this.height; j++) {
+				rep = rep+"|"+ grid[i][j];
+			}
+			rep = rep+"|\n";
 		}
+		return rep;
+		
 	}
-}
 	
 
 	
