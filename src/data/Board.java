@@ -12,6 +12,7 @@ public class Board {
 	private Square[] frozenList;
 	public static final String ANSI_RESET = "\033[0m";
 	public static final String ANSI_GREEN = "\u001B[32m";
+	public static final String ANSI_RED = "\u001B[31m";
 
 	public Board(int width, int height) {
 		this.width = width;
@@ -57,7 +58,12 @@ public class Board {
 					this.grid[newX][newY].addPawn(p);
 				}
 			}
+			//Checks whether or not the pawn arrived on the last row and should be frozen
+			if(this.toFreeze(newX,newY,thePlayer)){
+
+			}
 		}
+
 		//if the move is not valid, we dont do anything and simply return false,
 		//stating that the move hasn't been done
 		return moved;
@@ -197,6 +203,30 @@ public class Board {
 		return ret;
 	}
 	/**
+	* This method checks whether or not the pawn with given coordinates should be frozen
+	* @param x the X coordinate
+	* @param y the Y coordinate
+	* @param player the player
+	* @return true if it should be frozen,false otherwise
+	*/
+	private boolean toFreeze(x,y,player){
+		boolean ret=false;
+		if(player.getTop){
+			for(int j=0;j<this.width;j++){
+				if(x==this.height-1 && y==j){
+					ret=true;
+				}
+			}
+		}
+		else{
+			for(int j=0;j<this.width;j++){
+				if(x==0 && y==j){
+					ret=true;
+				}
+			}
+		}
+	}
+	/**
 	* Returns the board width
 	* @return the board width
 	*/
@@ -213,4 +243,7 @@ public class Board {
 	}
 	/**
 	*/
+	public int getPoint(Player thePlayer){
+		return 0;
+	}
 }
