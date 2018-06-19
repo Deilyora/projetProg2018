@@ -94,7 +94,7 @@ public class Board {
 							//If not, the move can't be done
 							if(release){
 								//We wanna check if the new pawn is eatable
-								if(){
+								if(this.isEatable(oldX,oldY,newX,newY,thePlayer)){
 									ret=true;
 								}
 							}
@@ -107,7 +107,6 @@ public class Board {
 				}
 			}
 		}
-
 		return ret;
 	}
 	/**
@@ -117,10 +116,10 @@ public class Board {
 	* @return true if it's frozen, false otherwise
 	*/
 	private boolean isFrozen(int x,int y){
-		ret=false;
+		boolean ret=false;
 		int i=0;
 		while(i<this.frozenList.length && !ret){
-			if(this.frozenList[i].getX()==x && this.frozenList[i].getY==y){
+			if(this.frozenList[i].getX()==x && this.frozenList[i].getY()==y){
 				ret=true;
 			}
 			i++;
@@ -155,7 +154,7 @@ public class Board {
 	*/
 	private boolean isNextTo(int oldX,int oldY,int newX, int newY){
 		ret=false;
-		if(newX==oldX+1 || newX==oldX-1 || newX==oldX){
+		if(newX==oldX+1 || newX==oldX-1 || newX==oldX){
 			if(newY==oldY+1 || newY==oldY+1 || newY==oldY){
 				ret=true;
 			}
@@ -171,17 +170,28 @@ public class Board {
 	* @param bY Y coordinate of pawn B
 	*/
 	private boolean isEatable(int aX,int aY,int bX, int bY,Player playerA){
-		ret=true;
+		boolean ret=false;
 		boolean bBelongsToA=false;
+		Pawn a=this.grid[aX][aY].getPawn((this.grid[aX][aY].getNbPawns())-1);
 		ArrayList<Pawn> pawnList=playerA.getPawns();
 		for(Pawn p : pawnList){
 			if(p.getPosX()==bX && p.getPosY()==bY){
 				bBelongsToA=true;
+				Pawn b=this.grid[aX][aY].getPawn((this.grid[aX][aY].getNbPawns())-1);
 			}
 		}
-		if(bBelongsToA){
-
+		if(!bBelongsToA){
+			if(a instanceof PawnS1 && b instanceof PawnS2){
+				ret=true;
+			}
+			if(a instanceof PawnS2 && b instanceof PawnS3){
+				ret=true;
+			}
+			if(a instanceof PawnS3 && b instanceof PawnS4){
+				ret=true;
+			}
 		}
+		return ret;
 	}
 	/**
 	* Returns the board width
