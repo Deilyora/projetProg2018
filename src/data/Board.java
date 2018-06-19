@@ -243,7 +243,23 @@ public class Board {
 	}
 	/**
 	*/
-	public int getPoint(Player thePlayer){
+	public int getPoints(Player thePlayer){
 		return 0;
 	}
+	
+	/**
+	 * Display the board with the pawns, columns, score, and players differenciated by colors
+	 * @return The String with the display
+	 */
+	public String toString() {
+	//i = vertical j = horizontal
+	for (int i = 0; i < 7 ; i++) {
+		for (int j = 0; j < 8; j++) {
+			grid[i][j].toString();
+		}
+	}
+}
+	
+
+	
 }
