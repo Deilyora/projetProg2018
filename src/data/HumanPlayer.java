@@ -44,7 +44,6 @@ public class HumanPlayer extends Player {
 					if (p.getPosX() == currentX && p.getPosY() == currentY && !p.getEaten() && !p.getFrozen() ) {
 						existing = true;
 						thePawn = p;
-						goodPawn = i;
 						System.out.println("Now choose where you want to move your pawn");
 					}
 				}
