@@ -1,5 +1,5 @@
 package data;
-import java.util.Scanner;
+import java.util.*;
  /* This class is used to represent a human player.
  * Human players choose their own name.
  */
@@ -10,7 +10,7 @@ public class HumanPlayer extends Player {
 	 * @param name the name chosen by the human player
 	 * @param pawnList the pawns of the player
 	 */
-	public HumanPlayer(String name,Pawn[] pawnList,Board board) {
+	public HumanPlayer(String name,ArrayList<Pawn> pawnList,Board board) {
 		super(name, pawnList,board);
 	}
 
@@ -28,7 +28,7 @@ public class HumanPlayer extends Player {
 		int currentY;
 		Pawn thePawn = null;
 		int goodPawn = -1;
-		Pawn[] thisPawnList = getPawnList();
+		ArrayList<Pawn> thisPawnList = getPawnList();
 		String yn = null;
 		boolean releasing =false;
 		Scanner in = new Scanner(System.in);
@@ -40,10 +40,10 @@ public class HumanPlayer extends Player {
 				currentX = in.nextInt();
 				System.out.println("Enter coordinate Y of the pawn you want to move");
 				currentY = in.nextInt();
-				for (int i = 0; i < thisPawnList.length; i++) {
-					if (thisPawnList[i].getPosX() == currentX && thisPawnList[i].getPosY() == currentY && !thisPawnList[i].getEaten() && !thisPawnList[i].getFrozen() ) {
+				for (Pawn p : thisPawnList) {
+					if (p.getPosX() == currentX && p.getPosY() == currentY && !p.getEaten() && !p.getFrozen() ) {
 						existing = true;
-						thePawn = thisPawnList[i];
+						thePawn = p;
 						goodPawn = i;
 						System.out.println("Now choose where you want to move your pawn");
 					}
@@ -68,7 +68,7 @@ public class HumanPlayer extends Player {
 					releasing = false;
 				}
 			}
-			if (thisPawnList[goodPawn].movePawn(currentX, currentY, newX, newY, releasing, this) && !(newX == currentX && newY == currentY) ) {
+			if (this.getBoard().movePawn(currentX, currentY, newX, newY, releasing, this) && !(newX == currentX && newY == currentY) ) {
 				playable = true;
 			}
 			else {
