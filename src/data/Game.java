@@ -18,11 +18,9 @@ public class Game {
 	 * Board, size, gamemode, name of players, mode. It then creates the game with these parameters
 	 * @param playerName1 the name of the player 1
 	 * @param playerName2 the name of the player 2
-	 * @param width the width of the board
-	 * @param height the height of the board 
 	 * @param mode the gamemode (AI/Human)
 	 */
-	public Game(String playerName1, String playerName2, int width, int height, Mode theMode) {
+	public Game(String playerName1, String playerName2, Mode theMode) {
 		// TODO - implement Game.Game
 		throw new UnsupportedOperationException();
 	}
