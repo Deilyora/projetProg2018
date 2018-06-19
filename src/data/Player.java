@@ -12,18 +12,21 @@ public abstract class Player {
 	private ArrayList<Pawn> pawnList;
 	private ArrayList<Pawn> frozenList;
 	private Board board;
+	private boolean top;
 
 	/**
 	 * The constructor of the Player has two attribute, the name of that player and his pawns.
 	 * AI player will always have the same defined name.
 	 * @param name The name of the player
 	 * @param pawns the pawns of the player
+	 * @param top whether or not the player is at the top of the board
 	 */
-	public Player(String name,ArrayList<Pawn> pawns,Board board) {
+	public Player(String name,ArrayList<Pawn> pawns,Board board,boolean top) {
 		this.playerName = name;
 		this.pawnList = pawns;
 		this.frozenList = new ArrayList<Pawn>();
 		this.board=board;
+		this.top=top;
 	}
 
 	/**

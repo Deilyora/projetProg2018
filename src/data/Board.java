@@ -10,6 +10,8 @@ public class Board {
 	private int height;
 	private Square[][] grid;
 	private Square[] frozenList;
+	public static final String ANSI_RESET = "\033[0m";
+	public static final String ANSI_GREEN = "\u001B[32m";
 
 	public Board(int width, int height) {
 		this.width = width;
