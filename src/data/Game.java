@@ -1,5 +1,6 @@
 package data;
 import java.util.Scanner;
+import java.io.*;
 /**
  * This class is used to define and manage a game. It creates 2 players and the board as a grid of squares.
  */
@@ -80,13 +81,13 @@ public class Game implements Serializable {
 	 */
 	public void saveGame(String fileName) {
 		try {
-			ObjectOutputStream out =  new ObjectOutputStream(new FileInputStream("../save/"+filename);
+			ObjectOutputStream out =  new ObjectOutputStream(new FileOutputStream("../save/"+fileName));
 			out.writeObject(this);
 			out.close();
-			System.exit();
+			System.exit(0);
 		}
 		catch (FileNotFoundException e) {
-			System.out.println("Error - unknown file : "+filename);
+			System.out.println("Error - unknown file : "+fileName);
 		}
 		catch (IOException e) {
 			e.printStackTrace();
