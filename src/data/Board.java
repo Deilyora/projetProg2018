@@ -40,7 +40,7 @@ public class Board {
 		//if the move is valid, we start moving it
 		if(valid){
 			//if the pawn to move releases the other one beneath it we only move the pawn on top
-			if(!release){
+			if(release){
 				Pawn toSwap=this.grid[oldX][oldY].getPawn((this.grid[oldX][oldY].getNbPawns())-1);
 				this.grid[oldX][oldY].removePawn();
 				toSwap.setPosX(newX);
@@ -176,7 +176,7 @@ public class Board {
 	private boolean isNextTo(int oldX,int oldY,int newX, int newY){
 		boolean ret=false;
 		if(newX==oldX+1 || newX==oldX-1 || newX==oldX){
-			if(newY==oldY+1 || newY==oldY+1 || newY==oldY){
+			if(newY==oldY+1 || newY==oldY-1 || newY==oldY){
 				ret=true;
 			}
 		}
