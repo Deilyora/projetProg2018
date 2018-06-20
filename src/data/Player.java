@@ -10,7 +10,6 @@ public abstract class Player {
 
 	private String playerName;
 	private ArrayList<Pawn> pawnList;
-	private ArrayList<Pawn> frozenList;
 	private Board board;
 	private boolean top;
 	private Color playerColor;
@@ -49,20 +48,6 @@ public abstract class Player {
 		this.pawnList = pawnList;
 	}
 
-	/**
-	* Gets the array with the frozen pawns of the player
-	* @return the array with the frozen pawns
-	*/
-	public ArrayList<Pawn> getFrozenList() {
-		return this.frozenList;
-	}
-	/**
-	* Adds a new frozen pawn to the frozenList
-	* @param frozen the frozen pawn
-	*/
-	public void addFrozenPawn(Pawn frozen) {
-		this.frozenList.add(frozen);
-	}
 	/**
 	* Gets the name of the player
 	* @return the name of the player

@@ -13,8 +13,8 @@ public class AIPlayer extends Player {
 	* @param top if the player is on top of the grid or not
 	* @param color the color of the player
 	*/
-	public AIPlayer(ArrayList<Pawn> pawnList,Board board,boolean top,Color color) {
-		super("Computer",pawnList,board,top,color);
+	public AIPlayer(String name, ArrayList<Pawn> pawnList,Board board,boolean top,Color color) {
+		super(name,pawnList,board,top,color);
 
 	}
 

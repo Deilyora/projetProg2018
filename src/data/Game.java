@@ -23,7 +23,8 @@ public class Game implements Serializable {
 		ArrayList<Pawn> arrayp1 = new ArrayList<Pawn>();
 		ArrayList<Pawn> arrayp2 = new ArrayList<Pawn>();
 		Square[][] theGrid = initializeGrid(height, width, arrayp1, arrayp2);
-		
+		this.board = new Board(height, width, theGrid);
+		createPlayers(playerName1,playerName2,arrayp1,arrayp2, theMode);
 	}
 
 	/**
@@ -120,10 +121,29 @@ public class Game implements Serializable {
 		this.player2 = player2;
 	}
 	
-	private void createPlayers(String name1, String name2) {
-		
-		this.player1 = new Player(name1
-
+	
+	/**
+	 * Creates the players 
+	 * @param name1 the name of player 1
+	 * @param name2 the name of player 2
+	 * @param arrayp1 the arraylist of pawns of player 1
+	 * @param arrayp2 the arraylist of pawns of player 2
+	 * @param theMode the mode of the game
+	 */
+	private void createPlayers(String name1, String name2, ArrayList<Pawn> arrayp1, ArrayList<Pawn> arrayp2, Mode theMode) {
+		if (theMode == Mode.HH) {
+			this.player1 = new HumanPlayer(name1, arrayp1,this.board,true,Color.RED);
+			this.player2 = new HumanPlayer(name2, arrayp2,this.board,false,Color.GREEN);
+		}
+		else if(theMode == MODE.HA) {
+			this.player1 = new HumanPlayer(name1, arrayp1, this.board, Color.RED);
+			this.player1 = new AIPlayer(name2, arrayp2, this.board, Color.GREEN);
+		}
+		else {
+			this.player1 = new AIPlayer(name1, arrayp1, this.board, Color.RED);
+			this.player1 = new AIPlayer(name2, arrayp2, this.board, Color.GREEN);
+		}
+	}
 	/**
 	* This method runs the game
 	*/
