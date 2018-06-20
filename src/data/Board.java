@@ -244,7 +244,7 @@ public class Board {
 	*
 	*/
 	private boolean belongsTo(Pawn pawn,Player player){
-		ret=false;
+		boolean ret=false;
 		return ret;
 	}
 	/**
