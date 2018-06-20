@@ -26,7 +26,6 @@ public abstract class Player {
 	public Player(String name,ArrayList<Pawn> pawns,Board board,boolean top, Color color) {
 		this.playerName = name;
 		this.pawnList = pawns;
-		this.frozenList = new ArrayList<Pawn>();
 		this.board=board;
 		this.top=top;
 		this.playerColor = color;

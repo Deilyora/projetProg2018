@@ -5,15 +5,12 @@ import data.*;
  */
 public class Run {
 
-	private Game game;
-
 	/**
 	 *Its the main of the run class.
 	 * @param args
 	 */
-	public void main(String[] args) {
-		// TODO - implement Run.main
-		throw new UnsupportedOperationException();
+	public static void main(String[] args) {
+		ChooseGame game=new ChooseGame();
 	}
 
 }

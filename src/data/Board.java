@@ -257,18 +257,18 @@ public class Board {
 		int ret=0;
 		for(Square s : this.frozenList){
 			Pawn p=s.getPawn((s.getNbPawns())-1);
-			if(p.getColor==color){
+			if(p.getColor()==color){
 				if (p instanceof PawnS1) {
-					rep+=1;
+					ret+=1;
 				}
 				else if (p instanceof PawnS2) {
-					rep+=2;
+					ret+=2;
 				}
 				else if (p instanceof PawnS3) {
-					rep+=3;
+					ret+=3;
 				}
 				else if (p instanceof PawnS4) {
-					rep+=4;
+					ret+=4;
 				}
 			}
 		}
@@ -286,7 +286,7 @@ public class Board {
 		for (int i = 0; i < this.height ; i++) {
 			for (int j = 0; j < this.width; j++) {
 				Pawn p=this.grid[i][j].getPawn((this.grid[i][j].getNbPawns())-1);
-				if(p.getColor==Color.RED){
+				if(p.getColor()==Color.RED){
 					rep = rep + "|"+ ANSI_RED+grid[i][j]+ANSI_RESET;
 				}
 				else{

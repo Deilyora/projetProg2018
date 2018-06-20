@@ -112,22 +112,22 @@ public abstract class Pawn {
 	public boolean getFrozen() {
 		return this.frozen;
 	}
-	
+
 	/**
 	 * Return the color of the pawn
 	 * @return the color of the pawn
 	 */
 	public Color getColor() {
-		return this.color;
+		return this.theColor;
 	}
-	
+
 	/**
 	 * Set the color of the pawn
 	 * @param color the color of the pawn
 	 */
-	public Color setColor(Color color) {
-		this.color = color;
+	public void setColor(Color color) {
+		this.theColor = color;
 	}
-		
+
 
 }

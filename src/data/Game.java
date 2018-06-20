@@ -1,5 +1,5 @@
 package data;
-import java.util.Scanner;
+import java.util.*;
 import java.io.*;
 /**
 * This class is used to define and manage a game. It creates 2 players and the board as a grid of squares.
@@ -38,23 +38,29 @@ public class Game implements Serializable {
 					grid[i][j]=new Square(i,j);
 				}
 			}
+				PawnS4 s4=null;
+				PawnS3 s3=null;
+				PawnS2 s2=null;
+				PawnS1 s1=null;
+				Square sq=null;
+				Square sq2=null;
 			Color color=Color.RED;
-			int x=0
-			int y=0
+			int x=0;
+			int y=0;
 			for(int i=0;i<3;i++){
-				PawnS4 s4=new PawnS4(x,y,false,true,color);
-				PawnS3 s3=new PawnS3(x,y,true,false,color);
+				s4=new PawnS4(x,y,false,true,color);
+				s3=new PawnS3(x,y,true,false,color);
 				arrayP1.add(s4);
 				arrayP1.add(s3);
-				Square sq=new Square(x,y);
+				sq=new Square(x,y);
 				sq.addPawn(s4);
 				sq.addPawn(s3);
 				grid[x][y]=sq;
-				PawnS2 s2=new PawnS2(x,y+1,false,true,color);
-				PawnS1 s1=new PawnS1(x,y+1,true,false,color);
+				s2=new PawnS2(x,y+1,false,true,color);
+				s1=new PawnS1(x,y+1,true,false,color);
 				arrayP1.add(s2);
 				arrayP1.add(s1);
-				Square sq2=new Square(x,y+1);
+				sq2=new Square(x,y+1);
 				sq2.addPawn(s2);
 				sq2.addPawn(s1);
 				grid[x][y+1]=sq2;
@@ -62,7 +68,7 @@ public class Game implements Serializable {
 			}
 			color=Color.GREEN;
 			x=height;
-			y=0
+			y=0;
 			for(int i=0;i<3;i++){
 				s4=new PawnS4(x,y,false,true,color);
 				s3=new PawnS3(x,y,true,false,color);
@@ -120,10 +126,10 @@ public class Game implements Serializable {
 	public void setPlayer2(Player player2) {
 		this.player2 = player2;
 	}
-	
-	
+
+
 	/**
-	 * Creates the players 
+	 * Creates the players
 	 * @param name1 the name of player 1
 	 * @param name2 the name of player 2
 	 * @param arrayp1 the arraylist of pawns of player 1
@@ -135,13 +141,13 @@ public class Game implements Serializable {
 			this.player1 = new HumanPlayer(name1, arrayp1,this.board,true,Color.RED);
 			this.player2 = new HumanPlayer(name2, arrayp2,this.board,false,Color.GREEN);
 		}
-		else if(theMode == MODE.HA) {
-			this.player1 = new HumanPlayer(name1, arrayp1, this.board, Color.RED);
-			this.player1 = new AIPlayer(name2, arrayp2, this.board, Color.GREEN);
+		else if(theMode == Mode.HA) {
+			this.player1 = new HumanPlayer(name1, arrayp1, this.board,true,Color.RED);
+			this.player1 = new AIPlayer(name2, arrayp2, this.board,false,Color.GREEN);
 		}
 		else {
-			this.player1 = new AIPlayer(name1, arrayp1, this.board, Color.RED);
-			this.player1 = new AIPlayer(name2, arrayp2, this.board, Color.GREEN);
+			this.player1 = new AIPlayer(name1, arrayp1, this.board,true,Color.RED);
+			this.player1 = new AIPlayer(name2, arrayp2, this.board,false,Color.GREEN);
 		}
 	}
 	/**
@@ -150,7 +156,7 @@ public class Game implements Serializable {
 	public void runGame() {
 		current=null;
 		//if someones has 12 points; if both players cannot move;
-		while (board.getPoints(current) < 12) {
+		while (board.getPoints(current.getColor()) < 12) {
 			if (current == null) {
 				current = this.player2;
 			}
