@@ -244,7 +244,8 @@ public class Board {
 	*
 	*/
 	private boolean belongsTo(Pawn pawn,Player player){
-
+		ret=false;
+		return ret;
 	}
 	/**
 	* Returns the board width
