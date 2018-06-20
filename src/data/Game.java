@@ -24,7 +24,67 @@ public class Game implements Serializable {
 		throw new UnsupportedOperationException();
 	}
 
-
+	/**
+	*
+	*/
+	private Square[][] initializeGrid(int height,int width,ArrayList<Pawn> arrayP1,ArrayList<Pawn> arrayP2){
+		Square[][] grid=new Square[height][width];
+		if(width>=8){
+			for(int i=0;i<width;i++){
+				for(int j=0;i<height;i++){
+					grid[i][j]=new Square(i,j);
+				}
+			}
+			Color color=Color.RED;
+			int x=0
+			int y=0
+			for(int i=0;i<3;i++){
+				PawnS4 s4=new PawnS4(x,y,false,true,color);
+				PawnS3 s3=new PawnS3(x,y,true,false,color);
+				arrayP1.add(s4);
+				arrayP1.add(s3);
+				Square sq=new Square(x,y);
+				sq.addPawn(s4);
+				sq.addPawn(s3);
+				grid[x][y]=sq;
+				PawnS2 s2=new PawnS2(x,y+1,false,true,color);
+				PawnS1 s1=new PawnS1(x,y+1,true,false,color);
+				arrayP1.add(s2);
+				arrayP1.add(s1);
+				Square sq2=new Square(x,y+1);
+				sq2.addPawn(s2);
+				sq2.addPawn(s1);
+				grid[x][y+1]=sq2;
+				y+=3;
+			}
+			color=Color.GREEN;
+			x=height;
+			y=0
+			for(int i=0;i<3;i++){
+				s4=new PawnS4(x,y,false,true,color);
+				s3=new PawnS3(x,y,true,false,color);
+				arrayP2.add(s4);
+				arrayP2.add(s3);
+				sq=new Square(x,y);
+				sq.addPawn(s4);
+				sq.addPawn(s3);
+				grid[x][y]=sq;
+				s2=new PawnS2(x,y+1,false,true,color);
+				s1=new PawnS1(x,y+1,true,false,color);
+				arrayP2.add(s2);
+				arrayP2.add(s1);
+				sq2=new Square(x,y+1);
+				sq2.addPawn(s2);
+				sq2.addPawn(s1);
+				grid[x][y+1]=sq2;
+				y+=3;
+			}
+		}
+		else{
+			System.out.println("initializeGrid error : width<8 : "+width);
+		}
+		return grid;
+	}
 	/**
 	* Gets the player1.
 	* @return the player1
