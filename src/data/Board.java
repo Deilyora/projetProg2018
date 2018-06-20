@@ -260,7 +260,7 @@ public class Board {
 	}
 	/**
 	*/
-	public int getPoints(Player thePlayer){
+	public int getPoints(Color color){
 		return 0;
 	}
 
