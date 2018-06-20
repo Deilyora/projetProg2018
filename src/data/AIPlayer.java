@@ -30,10 +30,14 @@ public class AIPlayer extends Player {
 		int rdPosX = (int) (this.getPawnList().get(rdPawn).getPosX() + newMove[(int) Math.random() * 3]);
 		int rdPosY = (int) (this.getPawnList().get(rdPawn).getPosY() + newMove[(int) Math.random() * 3]);
 		boolean release = false;
+		System.out.println(rdPosX+"				"+rdPosY);
+		Scanner in = new Scanner(System.in);
+		in.nextLine();
 		while (!this.getBoard().movePawn(this.getPawnList().get(rdPawn).getPosX(), this.getPawnList().get(rdPawn).getPosY(), rdPosX, rdPosY, release, this)) {
 			rdPosX = (int) (this.getPawnList().get(rdPawn).getPosX() + newMove[(int) Math.random() * 3]);
 			rdPosY = (int) (this.getPawnList().get(rdPawn).getPosY() + newMove[(int) Math.random() * 3]);
 		}
+
 
 	}
 
