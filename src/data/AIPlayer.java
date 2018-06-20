@@ -8,10 +8,13 @@ public class AIPlayer extends Player {
 
 	/**
 	* The constructor of AIPlayer. The name of the player is directly written in the class.
-	* @param the pawns of the player
+	* @param pawnList the pawns of the player
+	* @param board the board
+	* @param top if the player is on top of the grid or not
+	* @param color the color of the player
 	*/
-	public AIPlayer(ArrayList<Pawn> pawnList,Board board,boolean top) {
-		super("Computer",pawnList,board,top);
+	public AIPlayer(ArrayList<Pawn> pawnList,Board board,boolean top,Color color) {
+		super("Computer",pawnList,board,top,color);
 
 	}
 

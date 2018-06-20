@@ -8,10 +8,13 @@ public class HumanPlayer extends Player {
 	/**
 	 * This is the constructor of the class, it defines the name of the player
 	 * @param name the name chosen by the human player
-	 * @param pawnList the pawns of the player
+	* @param pawnList the pawns of the player
+	* @param board the board
+	* @param top if the player is on top of the grid or not
+	* @param color the color of the player
 	 */
-	public HumanPlayer(String name,ArrayList<Pawn> pawnList,Board board,boolean top) {
-		super(name, pawnList,board,top);
+	public HumanPlayer(String name,ArrayList<Pawn> pawnList,Board board,boolean top, Color color) {
+		super(name, pawnList,board,top,color);
 	}
 
 

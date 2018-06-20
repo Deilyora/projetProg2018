@@ -14,6 +14,7 @@ public abstract class Pawn {
 	private boolean eaten;
 	private boolean frozen;
 	private int points;
+	private Color theColor;
 
 	/**
 	 *	The Pawn constructor : it inherits of the position on the grid, if it has eaten a pawn or if it is eating a pawn
@@ -21,12 +22,14 @@ public abstract class Pawn {
 	 * @param posY The position of the pawn on Y
 	 * @param eating is true if the pawn has eaten a pawn
 	 * @param eaten is true if the pawn has been eaten
+	 * @param color the color of the pawn
 	 */
-	public Pawn(int posX, int posY, boolean eating, boolean eaten) {
+	public Pawn(int posX, int posY, boolean eating, boolean eaten, Color theColor) {
 		this.posX = posX;
 		this.posY = posY;
 		this.eating = eating;
 		this.eaten = eaten;
+		this.theColor = theColor;
 
 	}
 
@@ -109,5 +112,22 @@ public abstract class Pawn {
 	public boolean getFrozen() {
 		return this.frozen;
 	}
+	
+	/**
+	 * Return the color of the pawn
+	 * @return the color of the pawn
+	 */
+	public Color getColor() {
+		return this.color;
+	}
+	
+	/**
+	 * Set the color of the pawn
+	 * @param color the color of the pawn
+	 */
+	public Color setColor(Color color) {
+		this.color = color;
+	}
+		
 
 }

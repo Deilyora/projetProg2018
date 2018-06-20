@@ -13,6 +13,7 @@ public abstract class Player {
 	private ArrayList<Pawn> frozenList;
 	private Board board;
 	private boolean top;
+	private Color playerColor;
 
 	/**
 	* The constructor of the Player has two attribute, the name of that player and his pawns.
@@ -20,13 +21,16 @@ public abstract class Player {
 	* @param name The name of the player
 	* @param pawns the pawns of the player
 	* @param top whether or not the player is at the top of the board
+	* @param board the board
+	* @param color the color of the player
 	*/
-	public Player(String name,ArrayList<Pawn> pawns,Board board,boolean top) {
+	public Player(String name,ArrayList<Pawn> pawns,Board board,boolean top, Color color) {
 		this.playerName = name;
 		this.pawnList = pawns;
 		this.frozenList = new ArrayList<Pawn>();
 		this.board=board;
 		this.top=top;
+		this.playerColor = color;
 	}
 
 	/**
@@ -79,6 +83,13 @@ public abstract class Player {
 	*/
 	public boolean getTop(){
 		return this.top;
+	}
+	/**
+	 * Return the color of the player
+	 * @return the color of the player
+	 */
+	public Color getColor() {
+		return this.playerColor;
 	}
 	/**
 	* This method manages the next move of a player, whether or not it is a human player.

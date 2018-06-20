@@ -12,7 +12,7 @@ public class PawnS4 extends Pawn {
 	 * @param eating is true if the pawn has eaten a pawn
 	 * @param eaten is true if the pawn has been eaten
 	 */
-	public PawnS4(int posX, int posY, boolean eating, boolean eaten) {
-		super(posX,posY,eating,eaten);
+	public PawnS4(int posX, int posY, boolean eating, boolean eaten, Color color) {
+		super(posX,posY,eating,eaten, color);
 	}
 }
