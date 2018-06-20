@@ -1,27 +1,27 @@
 package data;
 import java.util.*;
- /* This class is used to represent a human player.
- * Human players choose their own name.
- */
+/* This class is used to represent a human player.
+* Human players choose their own name.
+*/
 public class HumanPlayer extends Player {
 
 	/**
-	 * This is the constructor of the class, it defines the name of the player
-	 * @param name the name chosen by the human player
+	* This is the constructor of the class, it defines the name of the player
+	* @param name the name chosen by the human player
 	* @param pawnList the pawns of the player
 	* @param board the board
 	* @param top if the player is on top of the grid or not
 	* @param color the color of the player
-	 */
+	*/
 	public HumanPlayer(String name,ArrayList<Pawn> pawnList,Board board,boolean top, Color color) {
 		super(name, pawnList,board,top,color);
 	}
 
 
 	/**
-	 * This method manages the next move of the human player
-	 * It asks the player wich pawn he wants to move, and where he wants to move it.
-	 */
+	* This method manages the next move of the human player
+	* It asks the player wich pawn he wants to move, and where he wants to move it.
+	*/
 	public void play() {
 		boolean playable = false;
 		boolean existing = false;
