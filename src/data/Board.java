@@ -33,7 +33,6 @@ public class Board {
 	* @param thePlayer the player who's moving the pawn
 	* @return true if the move was possible and the pawn has been moved, false otherwise.
 	*/
-	//TODO: Add frozen pawn to player's frozenList
 	public boolean movePawn(int oldX,int oldY,int newX, int newY, boolean release,Player thePlayer) {
 		boolean moved=false;
 		//First we wanna check if the move is valid
@@ -64,12 +63,6 @@ public class Board {
 				ArrayList<Pawn>toSet=this.grid[newX][newY].getPawns();
 				for(Pawn p : toSet){
 					p.setFrozen(true);
-					if(this.belongsTo(p,this.player1)){
-						player1.addFrozenPawn(p);
-					}
-					else{
-						player2.addFrozenPawn(p);
-					}
 				}
 			}
 		}
