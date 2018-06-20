@@ -267,6 +267,48 @@ public class Board {
 	public int getPoints(Player thePlayer){
 		return 0;
 	}
+	/**
+	*
+	*/
+	private void initializeGrid(){
+		Color color=Color.RED;
+		int x=0
+		int y=0
+		if(width>=8){
+			for(int i=0;i<3;i++){
+				PawnS4 s4=new PawnS4(x,y,false,true,color);
+				PawnS3 s3=new PawnS3(x,y,true,false,color);
+				Square sq=new Square(x,y);
+				sq.addPawn(s4);
+				sq.addPawn(s3);
+				PawnS2 s2=new PawnS2(x,y+1,false,true,color);
+				PawnS1 s1=new PawnS1(x,y+1,true,false,color);
+				Square sq2=new Square(x,y+1);
+				sq2.addPawn(s2);
+				sq2.addPawn(s1);
+				y+=3;
+			}
+			color=Color.GREEN;
+			x=this.height;
+			y=0
+			for(int i=0;i<3;i++){
+				s4=new PawnS4(x,y,false,true,color);
+				s3=new PawnS3(x,y,true,false,color);
+				sq=new Square(x,y);
+				sq.addPawn(s4);
+				sq.addPawn(s3);
+				s2=new PawnS2(x,y+1,false,true,color);
+				s1=new PawnS1(x,y+1,true,false,color);
+				sq2=new Square(x,y+1);
+				sq2.addPawn(s2);
+				sq2.addPawn(s1);
+				y+=3;
+			}
+		}
+		else{
+			System.out.println("initializeGrid error : width<8 : "+this.width);
+		}
+	}
 
 	/**
 	* Display the board with the pawns, columns, score, and players differenciated by colors
