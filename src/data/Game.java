@@ -19,9 +19,11 @@ public class Game implements Serializable {
 	* @param playerName2 the name of the player 2
 	* @param mode the gamemode (AI/Human)
 	*/
-	public Game(String playerName1, String playerName2, Mode theMode) {
-		// TODO - implement Game.Game
-		throw new UnsupportedOperationException();
+	public Game(String playerName1, String playerName2, Mode theMode, int height, int width) {
+		ArrayList<Pawn> arrayp1 = new ArrayList<Pawn>();
+		ArrayList<Pawn> arrayp2 = new ArrayList<Pawn>();
+		Square[][] theGrid = initializeGrid(height, width, arrayp1, arrayp2);
+		
 	}
 
 	/**
@@ -117,8 +119,10 @@ public class Game implements Serializable {
 	public void setPlayer2(Player player2) {
 		this.player2 = player2;
 	}
-
-
+	
+	private void createPlayers(String name1, String name2) {
+		
+		this.player1 = new Player(name1
 
 	/**
 	* This method runs the game

@@ -42,8 +42,8 @@ public class ChooseGame {
 		String playerName2;
 		String mode;
 		Mode theMode;
-		int width = -1;
-		int height = -1;
+		int width = 8;
+		int height = 7;
 		int nbOfPawns = -1;
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Gamemode (Human or Automatic) ? HH/HA/AA");
@@ -103,7 +103,7 @@ public class ChooseGame {
 		}
 
 */
-		Game theGame = new Game(playerName1, playerName2, theMode);
+		Game theGame = new Game(playerName1, playerName2, theMode, height, width);
 	}
 	
 	private void loadGame(String filename) {
