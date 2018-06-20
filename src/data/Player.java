@@ -53,11 +53,11 @@ public abstract class Player {
 		return this.frozenList;
 	}
 	/**
-	* Replaces the array of frozen pawns with a new one
-	* @param frozen the new array of pawns
+	* Adds a new frozen pawn to the frozenList
+	* @param frozen the frozen pawn
 	*/
-	public void setFrozenList(ArrayList<Pawn> frozen) {
-		this.frozenList = frozen;
+	public void addFrozenPawn(Pawn frozen) {
+		this.frozenList.add(frozen);
 	}
 	/**
 	* Gets the name of the player
