@@ -93,36 +93,27 @@ public class Board {
 	//TODO : set pawns to eaten and eating when needed
 	private boolean checkNextMove(int oldX,int oldY,int newX, int newY, boolean release,Player thePlayer){
 		boolean ret=false;
-		System.out.println("Etape 1");
 		//First we wanna check if the pawn on top belongs to the player
 		if(this.isMine(oldX,oldY,thePlayer)){
-			System.out.println("Etape 2");
 			//Then we wanna check if the pawn isn't frozen
 			if(!(this.isFrozen(oldX,oldY))){
-				System.out.println("Etape 3");
 				//We wanna check if the new position exists on the grid
 				if(newX>=0 && newX<height && newY>=0 && newY<width){
-					System.out.println("Etape 4");
 					//We wanna check if the new position is right next to the the current one
 					if(this.isNextTo(oldX,oldY,newX,newY)){
-						System.out.println("Etape 5");
 						//We wanna check if there is a pawn on the new square
 						if(this.grid[newX][newY].getPawns().size()!=0){
-							System.out.println("Etape 6");
 							//We wanna check if we are relasing the pawns or if there isn't any pawns beneath.
 							//If not, the move can't be done
 							if(release || !(this.grid[oldX][oldY].getPawn((this.grid[oldX][oldY].getNbPawns())-1).getEating())){
-								System.out.println("Etape 7");
 								//We wanna check if the new pawn is eatable
 								if(this.isEatable(oldX,oldY,newX,newY,thePlayer)){
-									System.out.println("Etape 8 : fin");
 									ret=true;
 								}
 							}
 						}
 						//if there isn't we can move it
 						else{
-							System.out.println("Etape 6 bis : FIN");
 							ret=true;
 						}
 					}
@@ -194,15 +185,15 @@ public class Board {
 		boolean ret=false;
 		boolean bBelongsToA=false;
 		Pawn a=this.grid[aX][aY].getPawn((this.grid[aX][aY].getNbPawns())-1);
-		Pawn b=null;
+		Pawn b=this.grid[bX][bY].getPawn((this.grid[bX][bY].getNbPawns())-1);
 		ArrayList<Pawn> pawnList=playerA.getPawnList();
 		for(Pawn p : pawnList){
 			if(p.getPosX()==bX && p.getPosY()==bY){
 				bBelongsToA=true;
-				b=this.grid[aX][aY].getPawn((this.grid[aX][aY].getNbPawns())-1);
 			}
 		}
 		if(!bBelongsToA){
+			System.out.println("B doesnt belong to A");
 			if(a instanceof PawnS1 && b instanceof PawnS2){
 				ret=true;
 			}

@@ -54,7 +54,9 @@ public class Square{
     * Removes the last pawn added(which should be the one on top of the others).
     */
    public void removePawn(){
+      this.pawns.get(this.pawns.size()-1).setEating(false);
       this.pawns.remove(this.pawns.size()-1);
+      this.pawns.get(this.pawns.size()-1).setEaten(false);
    }
    /**
     * Removes all the pawn on the square.
