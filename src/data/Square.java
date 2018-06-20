@@ -44,7 +44,7 @@ public class Square{
     * @param newPawn the pawn to add
     */
    public void addPawn(Pawn newPawn){
-      if(this.pawns.size>0){
+      if(this.pawns.size()>0){
          this.pawns.get(this.pawns.size()-1).setEaten(true);
          newPawn.setEating(true);
       }
