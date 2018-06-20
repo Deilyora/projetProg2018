@@ -32,7 +32,7 @@ public class HumanPlayer extends Player {
 		Pawn thePawn = null;
 		int goodPawn = -1;
 		ArrayList<Pawn> thisPawnList = getPawnList();
-		String yn = null;
+		String yn = "";
 		boolean releasing =false;
 		Scanner in = new Scanner(System.in);
 		System.out.println(getPlayerName()+"'s turn :");
@@ -70,7 +70,7 @@ public class HumanPlayer extends Player {
 					releasing = false;
 				}
 			}
-			if (this.getBoard().movePawn(currentX, currentY, newX, newY, releasing, this) && !(newX == currentX && newY == currentY) ) {
+			if (this.getBoard().movePawn(currentX, currentY, newX, newY, releasing, this) && (newX != currentX || newY != currentY) ) {
 				playable = true;
 			}
 			else {

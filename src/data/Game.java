@@ -71,25 +71,25 @@ public class Game implements Serializable {
 			x=height-1;
 			y=0;
 			for(int j=0;j<3;j++){
-				s4=new PawnS4(x,y,false,true,color);
-				s3=new PawnS3(x,y,true,false,color);
+				s4=new PawnS4(x,y+1,false,true,color);
+				s3=new PawnS3(x,y+1,true,false,color);
 				arrayP2.add(s4);
 				arrayP2.add(s3);
-				sq=new Square(x,y);
+				sq=new Square(x,y+1);
 				sq.addPawn(s4);
 				sq.addPawn(s3);
-				grid[x][y]=sq;
-				s2=new PawnS2(x,y+1,false,true,color);
-				s1=new PawnS1(x,y+1,true,false,color);
+				grid[x][y+1]=sq;
+				s2=new PawnS2(x,y,false,true,color);
+				s1=new PawnS1(x,y,true,false,color);
 				arrayP2.add(s2);
 				arrayP2.add(s1);
-				sq2=new Square(x,y+1);
+				sq2=new Square(x,y);
 				sq2.addPawn(s2);
 				sq2.addPawn(s1);
-				grid[x][y+1]=sq2;
+				grid[x][y]=sq2;
 				y+=3;
 			}
-			
+
 		}
 
 		else{
@@ -146,32 +146,30 @@ public class Game implements Serializable {
 		}
 		else if(theMode == Mode.HA) {
 			this.player1 = new HumanPlayer(name1, arrayp1, this.board,true,Color.RED);
-			this.player1 = new AIPlayer(name2, arrayp2, this.board,false,Color.GREEN);
+			this.player2 = new AIPlayer(name2, arrayp2, this.board,false,Color.GREEN);
 		}
 		else {
 			this.player1 = new AIPlayer(name1, arrayp1, this.board,true,Color.RED);
-			this.player1 = new AIPlayer(name2, arrayp2, this.board,false,Color.GREEN);
+			this.player2 = new AIPlayer(name2, arrayp2, this.board,false,Color.GREEN);
 		}
 	}
 	/**
 	* This method runs the game
 	*/
 	public void runGame() {
-		current=null;
+		this.current=this.player2;
 		//if someones has 12 points; if both players cannot move;
 		System.out.println(this.board);
-		while (board.getPoints(current.getColor()) < 12) {
-			if (current == null) {
-				current = this.player2;
-			}
-			else if (current == player1) {
-				current = player2;
+		while (this.board.getPoints(this.current.getColor()) < 12) {
+
+			if (this.current == this.player1) {
+				this.current = this.player2;
 			}
 			else {
-				current = player1;
+				this.current = this.player1;
 			}
 			System.out.println(current.getPlayerName()+"'s turn");
-			current.play();
+			this.current.play();
 			System.out.println(this.board);
 		}
 		endGame();
