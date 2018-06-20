@@ -6,6 +6,8 @@ import java.util.ArrayList;
 * It contains a method to move a pawn around the board.
 */
 public class Board {
+	private Player player1;
+	private Player player2;
 	private int width;
 	private int height;
 	private Square[][] grid;
@@ -14,11 +16,13 @@ public class Board {
 	public static final String ANSI_GREEN = "\u001B[32m";
 	public static final String ANSI_RED = "\u001B[31m";
 
-	public Board(int width, int height) {
+	public Board(int width, int height,Player player1,Player player2) {
 		this.width = width;
 		this.height = height;
 		this.grid = new Square[height][width];
 		this.frozenList = new ArrayList<Square>();
+		this.player1=player1;
+		this.player2=player2;
 	}
 
 	/**
@@ -64,6 +68,12 @@ public class Board {
 				ArrayList<Pawn>toSet=this.grid[newX][newY].getPawns();
 				for(Pawn p : toSet){
 					p.setFrozen(true);
+					if(this.belongsTo(p,this.player1)){
+						player1.addFrozenPawn(p);
+					}
+					else{
+						player2.addFrozenPawn(p);
+					}
 				}
 			}
 		}
@@ -231,6 +241,12 @@ public class Board {
 		return ret;
 	}
 	/**
+	*
+	*/
+	private boolean belongsTo(Pawn pawn,Player player){
+
+	}
+	/**
 	* Returns the board width
 	* @return the board width
 	*/
@@ -267,6 +283,9 @@ public class Board {
 		return rep;
 	}
 
+	public Square[][] getGrid(){
+		return this.grid;
+	}
 
 
 }
