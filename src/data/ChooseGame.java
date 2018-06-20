@@ -9,7 +9,7 @@ import java.io.*;
  * the user just have to choose and the game is created/loadedGame
  */
 public class ChooseGame {
-	
+
 	/**
 	 * The constructor of chooseGame just ask the user to choose between creating or loading a game.
 	 * If the player choose to load a game, he's asked the name of the save
@@ -23,7 +23,7 @@ public class ChooseGame {
 			System.out.println("Create or load ? c/l");
 			rep = sc.nextLine();
 		}
-		
+
 		if (rep.equals("c")) {
 			initializeGame();
 		}
@@ -33,7 +33,7 @@ public class ChooseGame {
 			loadGame("../save/"+file);
 		}
 	}
-	
+
 	/**
 	 * This method creates a new game with the parameters entered by the user.
 	 */
@@ -61,11 +61,11 @@ public class ChooseGame {
 		else {
 			theMode = Mode.AA;
 		}
-			
+
 		System.out.println("Enter the name of player 1");
 		playerName1 = sc.nextLine();
 		System.out.println("Enter the name of player 2");
-		playerName2 = sc.nextLine();		
+		playerName2 = sc.nextLine();
 /*		System.out.println("width of the board ? Type 0 for default");
 		while (!(width > 0)) {
 			System.out.println("You need enter a positive number");
@@ -85,7 +85,7 @@ public class ChooseGame {
 			height = sc.nextInt();
 		}
 		System.out.println("Number of pawns par player ? Type 0 for default");
-		
+
 		while(!(nbOfPawns > 0)) {
 			System.out.println("You need enter a positive number");
 			while (!sc.hasNextInt()) {
@@ -104,14 +104,15 @@ public class ChooseGame {
 
 */
 		Game theGame = new Game(playerName1, playerName2, theMode, height, width);
+		theGame.runGame();
 	}
-	
+
 	private void loadGame(String filename) {
 		try {
 			ObjectInputStream in = new ObjectInputStream(new FileInputStream(filename));
 			Game loadedGame = (Game) in.readObject();
 			loadedGame.runGame();
-						
+
 		}
 		catch (FileNotFoundException e) {
 			System.out.println("Error - File not found :"+filename);
@@ -122,9 +123,9 @@ public class ChooseGame {
 		catch (IOException e) {
 			e.printStackTrace();
 		}
-			
 
-		
+
+
 	}
-	
+
 }

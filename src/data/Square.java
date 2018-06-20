@@ -60,6 +60,17 @@ public class Square{
       this.pawns = new ArrayList<Pawn>();
    }
    /**
+   * Says wheter or not the square is empty
+   * @return true if it's empty, false otherwise
+   */
+   public boolean isEmpty(){
+      boolean ret=false;
+      if(this.pawns.size()==0){
+         ret=true;
+      }
+      return ret;
+   }
+   /**
     * Returns the x coordinate of the square
     * @return the x coordinate
     */

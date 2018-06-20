@@ -23,7 +23,7 @@ public class Game implements Serializable {
 		ArrayList<Pawn> arrayp1 = new ArrayList<Pawn>();
 		ArrayList<Pawn> arrayp2 = new ArrayList<Pawn>();
 		Square[][] theGrid = initializeGrid(height, width, arrayp1, arrayp2);
-		this.board = new Board(height, width, theGrid);
+		this.board = new Board(width, height, theGrid);
 		createPlayers(playerName1,playerName2,arrayp1,arrayp2, theMode);
 	}
 
@@ -33,17 +33,18 @@ public class Game implements Serializable {
 	private Square[][] initializeGrid(int height,int width,ArrayList<Pawn> arrayP1,ArrayList<Pawn> arrayP2){
 		Square[][] grid=new Square[height][width];
 		if(width>=8){
-			for(int i=0;i<width;i++){
-				for(int j=0;i<height;i++){
+			for(int i=0;i<height;i++){
+				for(int j=0;j<width;j++){
 					grid[i][j]=new Square(i,j);
 				}
 			}
-				PawnS4 s4=null;
-				PawnS3 s3=null;
-				PawnS2 s2=null;
-				PawnS1 s1=null;
-				Square sq=null;
-				Square sq2=null;
+
+			PawnS4 s4=null;
+			PawnS3 s3=null;
+			PawnS2 s2=null;
+			PawnS1 s1=null;
+			Square sq=null;
+			Square sq2=null;
 			Color color=Color.RED;
 			int x=0;
 			int y=0;
@@ -67,9 +68,9 @@ public class Game implements Serializable {
 				y+=3;
 			}
 			color=Color.GREEN;
-			x=height;
+			x=height-1;
 			y=0;
-			for(int i=0;i<3;i++){
+			for(int j=0;j<3;j++){
 				s4=new PawnS4(x,y,false,true,color);
 				s3=new PawnS3(x,y,true,false,color);
 				arrayP2.add(s4);
@@ -88,7 +89,9 @@ public class Game implements Serializable {
 				grid[x][y+1]=sq2;
 				y+=3;
 			}
+			
 		}
+
 		else{
 			System.out.println("initializeGrid error : width<8 : "+width);
 		}
@@ -129,13 +132,13 @@ public class Game implements Serializable {
 
 
 	/**
-	 * Creates the players
-	 * @param name1 the name of player 1
-	 * @param name2 the name of player 2
-	 * @param arrayp1 the arraylist of pawns of player 1
-	 * @param arrayp2 the arraylist of pawns of player 2
-	 * @param theMode the mode of the game
-	 */
+	* Creates the players
+	* @param name1 the name of player 1
+	* @param name2 the name of player 2
+	* @param arrayp1 the arraylist of pawns of player 1
+	* @param arrayp2 the arraylist of pawns of player 2
+	* @param theMode the mode of the game
+	*/
 	private void createPlayers(String name1, String name2, ArrayList<Pawn> arrayp1, ArrayList<Pawn> arrayp2, Mode theMode) {
 		if (theMode == Mode.HH) {
 			this.player1 = new HumanPlayer(name1, arrayp1,this.board,true,Color.RED);
@@ -156,6 +159,7 @@ public class Game implements Serializable {
 	public void runGame() {
 		current=null;
 		//if someones has 12 points; if both players cannot move;
+		System.out.println(this.board);
 		while (board.getPoints(current.getColor()) < 12) {
 			if (current == null) {
 				current = this.player2;
@@ -168,6 +172,7 @@ public class Game implements Serializable {
 			}
 			System.out.println(current.getPlayerName()+"'s turn");
 			current.play();
+			System.out.println(this.board);
 		}
 		endGame();
 	}

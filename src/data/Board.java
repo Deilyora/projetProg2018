@@ -89,6 +89,7 @@ public class Board {
 	* @param thePlayer the player who's moving the pawn
 	* @return true if the move is possible, false otherwise.
 	*/
+	//TODO : set pawns to eaten and eating when needed
 	private boolean checkNextMove(int oldX,int oldY,int newX, int newY, boolean release,Player thePlayer){
 		boolean ret=false;
 		//First we wanna check if the pawn on top belongs to the player
@@ -285,12 +286,17 @@ public class Board {
 		String rep = "";
 		for (int i = 0; i < this.height ; i++) {
 			for (int j = 0; j < this.width; j++) {
-				Pawn p=this.grid[i][j].getPawn((this.grid[i][j].getNbPawns())-1);
-				if(p.getColor()==Color.RED){
-					rep = rep + "|"+ ANSI_RED+grid[i][j]+ANSI_RESET;
+				if(!(this.grid[i][j].isEmpty())){
+					Pawn p=this.grid[i][j].getPawn((this.grid[i][j].getNbPawns())-1);
+					if(p.getColor()==Color.RED){
+						rep = rep + "|"+ ANSI_RED+grid[i][j]+ANSI_RESET;
+					}
+					else{
+						rep = rep + "|"+ ANSI_GREEN+grid[i][j]+ANSI_RESET;
+					}
 				}
 				else{
-					rep = rep + "|"+ ANSI_GREEN+grid[i][j]+ANSI_RESET;
+					rep = rep + "| ";
 				}
 			}
 			rep = rep + "|\n";
