@@ -109,9 +109,9 @@ public class Board {
 						//We wanna check if there is a pawn on the new square
 						if(this.grid[newX][newY].getPawns().size()!=0){
 							System.out.println("Etape 6");
-							//We wanna check if we are relasing the pawns.
+							//We wanna check if we are relasing the pawns or if there isn't any pawns beneath.
 							//If not, the move can't be done
-							if(release){
+							if(release || !(this.grid[x][y].getPawn((this.grid[x][y].getNbPawns())-1).getEating())){
 								System.out.println("Etape 7");
 								//We wanna check if the new pawn is eatable
 								if(this.isEatable(oldX,oldY,newX,newY,thePlayer)){
