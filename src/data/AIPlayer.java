@@ -1,5 +1,7 @@
 package data;
 import java.util.*;
+import java.io.*;
+
 /**
 * This class represents an automated player.
 * Automated players have a defined name.

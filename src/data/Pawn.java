@@ -1,4 +1,5 @@
 package data;
+import java.io.*;
 
 /**
  * This class represents a pawn of the game.

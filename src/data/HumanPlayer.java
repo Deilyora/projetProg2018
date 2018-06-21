@@ -1,5 +1,7 @@
 package data;
 import java.util.*;
+import java.io.*;
+
 /* This class is used to represent a human player.
 * Human players choose their own name.
 */
@@ -43,13 +45,13 @@ public class HumanPlayer extends Player implements Serializable  {
 				while (!in.hasNextInt()) {
 					System.out.println("Enter a valid number");
 					in.next();
-				}			
+				}
 				currentX = in.nextInt();
 				System.out.println("Enter coordinate Y of the pawn you want to move");
 				while (!in.hasNextInt()) {
 					System.out.println("Enter a valid number");
 					in.next();
-				}	
+				}
 				currentY = in.nextInt();
 				for (Pawn p : thisPawnList) {
 					if (p.getPosX() == currentX && p.getPosY() == currentY && !p.getEaten() && !p.getFrozen() ) {
@@ -66,13 +68,13 @@ public class HumanPlayer extends Player implements Serializable  {
 			while (!in.hasNextInt()) {
 				System.out.println("Enter a valid number");
 				in.next();
-			}	
+			}
 			newX = in.nextInt();
 			System.out.println("Enter the coordinate Y of the square you want to move that pawn to");
 			while (!in.hasNextInt()) {
 				System.out.println("Enter a valid number");
 				in.next();
-			}	
+			}
 			newY = in.nextInt();
 			if (thePawn.getEating()) {
 				while (!yn.equals("y") && !yn.equals("n")) {

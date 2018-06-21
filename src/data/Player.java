@@ -1,5 +1,7 @@
 package data;
 import java.util.ArrayList;
+import java.io.*;
+
 /**
 * This class manages the 2 players in the game. It's abstract because there's 2 subtypes
 * of players : human and IA. It contains the name of the player, and 2 lists of pawns, one with the pawns that are still
