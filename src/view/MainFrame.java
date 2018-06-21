@@ -15,7 +15,7 @@ public class MainFrame extends JFrame{
 	private MenuPanel menu;
 	private BoardPanel board;
 	private PausePanel pause;
-*/	
+*/
 	public MainFrame(){
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setTitle("ARCANOR");
@@ -27,8 +27,8 @@ public class MainFrame extends JFrame{
 		add(menu);
 		pack();
 	}
-	
-	
+
+
 
 	public static void main(String args[]) {
 		java.awt.EventQueue.invokeLater(new Runnable() {
