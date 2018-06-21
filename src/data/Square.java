@@ -4,7 +4,7 @@ import java.util.ArrayList;
  * This class represents a square on the grid.
  * It contains an ArrayList of pawn, which are the pawns on this square. The last element in the ArrayList is the pawn on top of the other.
  */
-public class Square{
+public class Square implements Serializable{
    private int posX;
    private int posY;
    private ArrayList<Pawn> pawns;

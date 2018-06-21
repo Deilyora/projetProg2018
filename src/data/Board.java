@@ -5,7 +5,7 @@ import java.util.ArrayList;
 * It represent the game with a 2D array of squares.
 * It contains a method to move a pawn around the board.
 */
-public class Board {
+public class Board implements Serializable  {
 	private int width;
 	private int height;
 	private Square[][] grid;

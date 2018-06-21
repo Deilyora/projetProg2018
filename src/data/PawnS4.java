@@ -3,7 +3,7 @@ package data;
  * This class represents the size 4 pawn.
  * Size 4 pawns cannot eat any size of pawns and can be eaten by size 3 pawns.
  */
-public class PawnS4 extends Pawn {
+public class PawnS4 extends Pawn implements Serializable  {
 
 	/**
 	 *	The Pawn constructor : it inherits of the position on the grid, if it has eaten a pawn or if it is eating a pawn.

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 * movable and one with the pawn that are on the last line, meaning they're cannot be moved again
 * and give points to that player.
 */
-public abstract class Player {
+public abstract class Player implements Serializable  {
 
 	private String playerName;
 	private ArrayList<Pawn> pawnList;

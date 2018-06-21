@@ -4,7 +4,7 @@ import java.util.*;
 * This class represents an automated player.
 * Automated players have a defined name.
 */
-public class AIPlayer extends Player {
+public class AIPlayer extends Player implements Serializable   {
 
 	/**
 	* The constructor of AIPlayer. The name of the player is directly written in the class.

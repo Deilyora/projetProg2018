@@ -6,7 +6,7 @@ package data;
  * Each pawn can be moved, and can be either eating or eaten another one.
  * An eaten pawn cannot be moved directly and follow all the moves of the pawn that has eaten it
  */
-public abstract class Pawn {
+public abstract class Pawn implements Serializable {
 
 	private int posX;
 	private int posY;

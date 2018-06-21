@@ -3,7 +3,7 @@ import java.util.*;
 /* This class is used to represent a human player.
 * Human players choose their own name.
 */
-public class HumanPlayer extends Player {
+public class HumanPlayer extends Player implements Serializable  {
 
 	/**
 	* This is the constructor of the class, it defines the name of the player
