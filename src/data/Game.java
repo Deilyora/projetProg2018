@@ -178,7 +178,7 @@ public class Game implements Serializable {
 	* This method ends the game.
 	*/
 	public void endGame() {
-		System.out.println(current+" won the game by being the first to score 12 points !");
+		System.out.println(current.getPlayerName()+" won the game by being the first to score 12 points !");
 		System.exit(0);
 	}
 	/**

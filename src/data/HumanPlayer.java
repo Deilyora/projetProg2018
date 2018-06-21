@@ -51,12 +51,12 @@ public class HumanPlayer extends Player {
 					}
 				}
 				if (!existing) {
-					System.out.println("Error : No valide Pawn with these coordinates, try again");
+					System.out.println("Error : No valid Pawn with these coordinates, try again");
 				}
 			}
-			System.out.println("Enter the new coordinate X of the pawn you want to move");
+			System.out.println("Enter the coordinate X of the square you want to move that pawn to");
 			newX = in.nextInt();
-			System.out.println("Enter the new coordinate Y of the pawn you want to move");
+			System.out.println("Enter the coordinate Y of the square you want to move that pawn to");
 			newY = in.nextInt();
 			if (thePawn.getEating()) {
 				while (!yn.equals("y") && !yn.equals("n")) {
