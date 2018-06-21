@@ -24,7 +24,10 @@ public class MainFrame extends JFrame{
 	//	BoardPanel board = new Boardpanel();
 	//	PausePanel pause = new PausePanel();
 	//	ChoosePanel choose = new ChoosePanel();
+
+
 		add(menu);
+		pack();
 	}
 
 
