@@ -25,7 +25,6 @@ public class MainFrame extends JFrame{
 	//	PausePanel pause = new PausePanel();
 	//	ChoosePanel choose = new ChoosePanel();
 		add(menu);
-		pack();
 	}
 
 
