@@ -1,5 +1,6 @@
 package view;
-
+import javax.swing.*;
+import java.awt.*;
 /**
  * This class creates the MainFrame of the game. It manages all the different panels of the game :
  * The popup menu when the game is over
@@ -8,56 +9,32 @@ package view;
  * The in game pause menu
  * The options panel
  */
-public class MainFrame {
+public class MainFrame extends JFrame{
 
-	private PopUp popUp;
+/*	private PopUp popUp;
 	private MenuPanel menu;
 	private BoardPanel board;
 	private PausePanel pause;
-	private OptionPanel option;
-	
+*/	
 	public MainFrame(){
-		
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		setTitle("ARCANOR");
+	//	PopUp thePopUp = new PopUp();
+		MenuPanel menu = new MenuPanel();
+	//	BoardPanel board = new Boardpanel();
+	//	PausePanel pause = new PausePanel();
+	//	ChoosePanel choose = new ChoosePanel();
+		add(menu);
+		pack();
 	}
 	
-	/**
-	 * Get the popUp
-	 * @return the popUp
-	 */
-	public PopUp getPopUp() {
-		return this.popUp;
-	}
 	
-	/**
-	 * Get the menu
-	 * @return the menu
-	 */
-	public MenuPanel getMenu() {
-		return this.menu;
-	}
 
-	/**
-	 * Get the board of the game
-	 * @return the board
-	 */
-	public BoardPanel getBoard() {
-		return this.board;
+	public static void main(String args[]) {
+		java.awt.EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				new MainFrame().setVisible(true);
+			}
+		});
 	}
-
-	/**
-	 * Get the pause menu
-	 * @return the pause
-	 */
-	public PausePanel getPause() {
-		return this.pause;
-	}
-
-	/**
-	 * Get the option menu
-	 * @return the option
-	 */
-	public OptionPanel getOption() {
-		return this.option;
-	}
-
 }
