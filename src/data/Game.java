@@ -157,7 +157,9 @@ public class Game implements Serializable {
 	* This method runs the game
 	*/
 	public void runGame() {
-		this.current=this.player2;
+		if (this.current == null) {
+			this.current=this.player2;
+		}
 		//if someones has 12 points; if both players cannot move;
 		System.out.println(this.board);
 		while (this.board.getPoints(this.current.getColor()) < 12) {
