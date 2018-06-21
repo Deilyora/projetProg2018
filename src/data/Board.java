@@ -196,7 +196,6 @@ public class Board implements Serializable  {
 		}
 		if(!bBelongsToA){
 			if(!b.getFrozen()){
-				System.out.println("B doesnt belong to A");
 				if(a instanceof PawnS1 && b instanceof PawnS2){
 					ret=true;
 				}
