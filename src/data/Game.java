@@ -171,6 +171,19 @@ public class Game implements Serializable {
 			System.out.println(current.getPlayerName()+"'s turn");
 			this.current.play();
 			System.out.println(this.board);
+			String yn="";
+			Scanner in = new Scanner(System.in);
+			while (!yn.equals("y") && !yn.equals("n")) {
+				System.out.println("Do you want to save and quit? y/n");
+				yn = in.nextLine();
+			}
+			if (yn.equals("y")) {
+				System.out.println("Give us a name for the save :");
+				String saveName=in.nextLine();
+				this.saveGame(saveName);
+				System.out.println("Goodbye !");
+				System.exit(0);
+			}
 		}
 		endGame();
 	}

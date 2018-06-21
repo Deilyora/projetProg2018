@@ -1,5 +1,7 @@
 package data;
 import java.util.ArrayList;
+import java.io.*;
+
 /**
 * This class represents the game board.
 * It represent the game with a 2D array of squares.

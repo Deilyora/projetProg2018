@@ -1,4 +1,6 @@
 package data;
+import java.io.*;
+
 /**
  * This class represents the size 3 pawn.
  * Size 3 pawns can eat size 4 pawns and can be eaten by size 2 pawns.

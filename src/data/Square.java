@@ -1,5 +1,7 @@
 package data;
 import java.util.ArrayList;
+import java.io.*;
+
 /**
  * This class represents a square on the grid.
  * It contains an ArrayList of pawn, which are the pawns on this square. The last element in the ArrayList is the pawn on top of the other.
