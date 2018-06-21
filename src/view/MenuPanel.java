@@ -11,14 +11,18 @@ public class MenuPanel extends JPanel{
 	private JButton loadGame;
 	private JButton quit;
 
-	public MenuPanel(){
+	public MenuPanel() {
+
 		this.newGame = new JButton("NEW GAME");
 		this.loadGame = new JButton("LOAD GAME");
 		this.quit = new JButton("QUIT");
-		setLayout(new java.awt.BorderLayout());
-		add(this.newGame, BorderLayout.CENTER);
-		add(this.loadGame, BorderLayout.CENTER);
-		add(this.quit, BorderLayout.CENTER);
+		setLayout(new GridLayout(3,1));
+		
+
+		add(this.newGame);
+		add(this.loadGame);
+		add(this.quit);
+		
 	}
 	
 	public JButton getNewGameButton() {
