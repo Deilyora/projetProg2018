@@ -193,16 +193,19 @@ public class Board {
 			}
 		}
 		if(!bBelongsToA){
-			System.out.println("B doesnt belong to A");
-			if(a instanceof PawnS1 && b instanceof PawnS2){
-				ret=true;
+			if(!b.getFrozen()){
+				System.out.println("B doesnt belong to A");
+				if(a instanceof PawnS1 && b instanceof PawnS2){
+					ret=true;
+				}
+				if(a instanceof PawnS2 && b instanceof PawnS3){
+					ret=true;
+				}
+				if(a instanceof PawnS3 && b instanceof PawnS4){
+					ret=true;
+				}
 			}
-			if(a instanceof PawnS2 && b instanceof PawnS3){
-				ret=true;
-			}
-			if(a instanceof PawnS3 && b instanceof PawnS4){
-				ret=true;
-			}
+
 		}
 		return ret;
 	}
