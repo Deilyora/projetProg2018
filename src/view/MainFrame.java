@@ -1,6 +1,7 @@
 package view;
 import javax.swing.*;
 import java.awt.*;
+import java.io.*;
 /**
  * This class creates the MainFrame of the game. It manages all the different panels of the game :
  * The popup menu when the game is over
@@ -38,5 +39,26 @@ public class MainFrame extends JFrame{
 				new MainFrame().setVisible(true);
 			}
 		});
+	}
+	
+	public void setFrame(JPanel oldFrame, JPanel newFrame, boolean hideBoard, boolean displayBoard) {
+		if (hideBoard) {
+			oldFrame.setVisible(false);
+			add(newFrame);
+			revalidate();
+			pack();
+		}
+		else if (displayBoard) {
+			remove(oldFrame);
+			newFrame.setVisible(true);
+			revalidate();
+			pack();
+		}
+		else {
+			remove(oldFrame);
+			add(newFrame);
+			revalidate();
+			pack();
+		}
 	}
 }
