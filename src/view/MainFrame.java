@@ -41,7 +41,7 @@ public class MainFrame extends JFrame{
 		selection.getBackButton().addActionListener(e);
 		load.getOkButton().addActionListener(e);
 		load.getBackButton().addActionListener(e);
-		add(board);
+		add(menu);
 
 		pack();
 		setSize(500,500);

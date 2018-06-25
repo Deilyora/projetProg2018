@@ -50,4 +50,26 @@ public class SelectionPanel extends JPanel {
 	public JButton getBackButton() {
 		return this.back;
 	}
+	
+	public JTextField getPlayer1() {
+		return this.player1;
+	}
+	
+	public JTextField getPlayer2() {
+		return this.player2;
+	}
+	
+	
+	public JRadioButton getPVPButton() {
+		return this.pvp;
+	}
+	
+	public JRadioButton getPVEButton() {
+		return this.pve;
+	}
+	
+	public JRadioButton getEVEButton() {
+		return this.eve;
+	}
+	
 }

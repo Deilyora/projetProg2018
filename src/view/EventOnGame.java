@@ -1,5 +1,7 @@
 package view;
 
+import data.*;
+
 import java.awt.event.*;
 import javax.swing.*;
 import java.io.*;
@@ -44,6 +46,22 @@ public class EventOnGame implements ActionListener {
 			theMain.setFrame(pause,board,false,true);
 		}
 		else if (ev.getSource() == selection.getOkButton()) {
+			String playerName1 = selection.getPlayer1().getText();
+			String playerName2 = selection.getPlayer2().getText();
+			Mode mode = null;
+			if (selection.getPVPButton().isSelected()) {
+				mode = Mode.HH;
+			}
+			else if (selection.getPVEButton().isSelected()) {
+				mode = Mode.HA;
+			}
+			else {
+				mode = mode.AA;
+			}
+			
+			Game theGame = new Game(playerName1, playerName2, mode, 7, 8);
+			theGame.runGame();
+				
 			theMain.setFrame(selection,board,false,true);
 		}
 		else if (ev.getSource() == selection.getBackButton()) {

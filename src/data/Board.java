@@ -1,7 +1,7 @@
 package data;
 import java.util.ArrayList;
 import java.io.*;
-//import view.*;
+import view.*;
 /**
 * This class represents the game board.
 * It represent the game with a 2D array of squares.
@@ -15,7 +15,7 @@ public class Board implements Serializable  {
 	public static final String ANSI_RESET = "\033[0m";
 	public static final String ANSI_GREEN = "\u001B[32m";
 	public static final String ANSI_RED = "\u001B[31m";
-	//private MainFrame frame;
+	private MainFrame frame;
 
 	public Board(int width, int height,Square[][] grid) {
 		this.width = width;
