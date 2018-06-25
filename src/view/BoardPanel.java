@@ -21,7 +21,9 @@ public class BoardPanel extends JPanel{
 	private JPanel right;
 	private JButton move;
 	private JButton release;
+	private ArrayList<GridButton> buttonsGrid;
 	public BoardPanel(){
+		this.buttonsGrid=new ArrayList<GridButton>();
 		Square[][] theGrid=new Square[this.height][this.width];
 		for(int i=0;i<height;i++){
 			for(int j=0;j<width;j++){
@@ -57,6 +59,9 @@ public class BoardPanel extends JPanel{
 	}
 	public void boardInit(Board theBoard){
 		this.theBoard=theBoard;
+	}
+	public ArrayList<GridButton> getButtonsGrid(){
+		return this.buttonsGrid;
 	}
 	public void setScore(){
 		this.redScore.setText(""+this.theBoard.getPoints(data.Color.RED));
@@ -139,6 +144,7 @@ public class BoardPanel extends JPanel{
 				GridButton button=new GridButton(img,i,j);
 				button.setBackground(white);
 				this.center.add(button);
+				this.buttonsGrid.add(button);
 				revalidate();
 				repaint();
 			}

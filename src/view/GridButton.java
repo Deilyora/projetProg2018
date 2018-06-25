@@ -7,8 +7,8 @@ import javax.swing.*;
 */
 public class GridButton extends JButton{
 
-   protected int x;
-   protected int y;
+   public int x;
+   public int y;
 
    public GridButton(ImageIcon image,int x,int y){
       super(image);
