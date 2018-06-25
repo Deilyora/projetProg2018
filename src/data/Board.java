@@ -22,11 +22,17 @@ public class Board implements Serializable  {
 		this.height = height;
 		this.grid = grid;
 		this.frozenList = new ArrayList<Square>();
-	//	this.frame=new MainFrame();
-	//	frame.setVisible(true);
-	//	this.frame.getBoardPanel().setBoard(this.grid);
-	}
 
+		this.showGUI();
+	}
+	public void showGUI(){
+		this.frame=new MainFrame();
+		frame.setVisible(true);
+		this.frame.getBoardPanel().boardInit(this);
+		this.frame.getBoardPanel().setBoard(this.grid);
+		this.frame.getBoardPanel().setScore();
+
+	}
 	/**
 	* Move the pawn to the chosen location.
 	* The method checkNextMove checks if the new postion is valid for the pawn.
@@ -73,8 +79,10 @@ public class Board implements Serializable  {
 			}
 			moved=true;
 		}
-		
-		//this.frame.getBoardPanel().setBoard(this.grid);
+
+
+		this.frame.getBoardPanel().setBoard(this.grid);
+		this.frame.getBoardPanel().setScore();
 		//if the move is not valid, we dont do anything and simply return false,
 		//stating that the move hasn't been done
 		return moved;
