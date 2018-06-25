@@ -14,20 +14,22 @@ public class MainFrame extends JFrame{
 
 /*	private PopUp popUp;
 	private MenuPanel menu;
-	private BoardPanel board;
+
 	private PausePanel pause;
 */
+	private BoardPanel board;
+
 	public MainFrame(){
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setTitle("ARCANOR");
 	//	PopUp thePopUp = new PopUp();
-		MenuPanel menu = new MenuPanel();
-	//	BoardPanel board = new Boardpanel();
+	//	MenuPanel menu = new MenuPanel();
+		this.board = new BoardPanel();
 	//	PausePanel pause = new PausePanel();
 	//	ChoosePanel choose = new ChoosePanel();
 
 
-		add(menu);
+		add(board);
 		pack();
 	}
 
@@ -40,7 +42,9 @@ public class MainFrame extends JFrame{
 			}
 		});
 	}
-	
+	public BoardPanel getBoardPanel(){
+		return this.board;
+	}
 	public void setFrame(JPanel oldFrame, JPanel newFrame, boolean hideBoard, boolean displayBoard) {
 		if (hideBoard) {
 			oldFrame.setVisible(false);
