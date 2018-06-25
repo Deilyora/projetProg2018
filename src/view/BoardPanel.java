@@ -11,8 +11,6 @@ public class BoardPanel extends JPanel{
 	private static final int height = 7;
 	private static final int width = 8;
 	private static java.awt.Color white=java.awt.Color.WHITE;
-	private static java.awt.Color black=java.awt.Color.BLACK;
-
 
 	public BoardPanel(){
 		Square[][] theGrid=new Square[this.height][this.width];
