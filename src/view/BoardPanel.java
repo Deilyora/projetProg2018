@@ -11,6 +11,7 @@ public class BoardPanel extends JPanel{
 	private static final int height = 7;
 	private static final int width = 8;
 	private static java.awt.Color white=java.awt.Color.WHITE;
+	private JPanel center;
 
 	public BoardPanel(){
 		Square[][] theGrid=new Square[this.height][this.width];
@@ -19,7 +20,17 @@ public class BoardPanel extends JPanel{
 				theGrid[i][j]=new Square(i,j);
 			}
 		}
-		setLayout(new GridLayout(this.height,this.width));
+
+
+		this.center = new JPanel();
+		center.setLayout(new GridLayout(this.height,this.width));
+		JPanel right = new JPanel();
+
+		JPanel bottom = new JPanel();
+		setLayout(new BorderLayout());
+		add(center, BorderLayout.CENTER);
+		add(right, BorderLayout.EAST);
+		add(bottom, BorderLayout.SOUTH);
 
 		this.setBoard(theGrid);
 	}
@@ -99,7 +110,7 @@ public class BoardPanel extends JPanel{
 				}
 				GridButton button=new GridButton(img,i,j);
 				button.setBackground(white);
-				add(button);
+				this.center.add(button);
 				revalidate();
 				repaint();
 			}
