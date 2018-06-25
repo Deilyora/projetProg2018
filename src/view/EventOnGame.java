@@ -26,7 +26,7 @@ public class EventOnGame implements ActionListener {
 	
 	public void actionPerformed (ActionEvent ev) {
 		if (ev.getSource() == menu.getNewGameButton()) {
-			theMain.setFrame(menu,board,false,true);
+			theMain.setFrame(menu,selection,false,false);
 		}
 		else if (ev.getSource() == menu.getLoadGameButton()) {
 			theMain.setFrame(menu,load,false,false);
