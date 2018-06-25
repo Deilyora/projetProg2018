@@ -63,6 +63,12 @@ public class BoardPanel extends JPanel{
 	public ArrayList<GridButton> getButtonsGrid(){
 		return this.buttonsGrid;
 	}
+	public JButton getMoveButton(){
+		return this.move;
+	}
+	public JButton getReleaseButton(){
+		return this.release;
+	}
 	public void setScore(){
 		this.redScore.setText(""+this.theBoard.getPoints(data.Color.RED));
 		this.greenScore.setText(""+this.theBoard.getPoints(data.Color.GREEN));

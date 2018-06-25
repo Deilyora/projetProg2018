@@ -42,7 +42,6 @@ public class MainListener implements ActionListener{
 	* @param ev the event that happened on the GUI
 	*/
 	public void actionPerformed(ActionEvent ev) {
-		System.out.println("yolo");
 		if (ev.getSource() == menu.getNewGameButton()) {
 			theMain.setFrame(menu,selection,false,false);
 		}
@@ -99,6 +98,18 @@ public class MainListener implements ActionListener{
 		else if (ev.getSource() == load.getBackButton()) {
 			theMain.setFrame(load,menu,false,false);
 		}
+		else if (ev.getSource() == board.getMoveButton()) {
+			boolean bool=game.getBoard().movePawn(oldX,oldY,newX,newY,false,game.getPlayer1());
+			this.board.setBoard(game.getBoard().getGrid());
+			this.board.setScore();
+			theMain.setGridListener();
+		}
+		else if (ev.getSource() == board.getReleaseButton()) {
+			boolean bool=game.getBoard().movePawn(oldX,oldY,newX,newY,true,game.getPlayer1());
+			this.board.setBoard(game.getBoard().getGrid());
+			this.board.setScore();
+			theMain.setGridListener();
+		}
 		else if(ev.getSource() instanceof GridButton){
 			this.buttonPressed++;
 			GridButton button=(GridButton)ev.getSource();
@@ -107,11 +118,15 @@ public class MainListener implements ActionListener{
 				this.oldY=button.y;
 				this.newX=-1;
 				this.newY=-1;
+				System.out.println("oldX:"+oldX+" oldY:"+oldY);
+				System.out.println("newX:"+newX+" newY:"+newY);
 			}
 			else{
 				this.newX=button.x;
 				this.newY=button.y;
 				buttonPressed=0;
+				System.out.println("oldX:"+oldX+" oldY:"+oldY);
+				System.out.println("newX:"+newX+" newY:"+newY);
 			}
 		}
 	}

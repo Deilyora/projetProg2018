@@ -44,6 +44,8 @@ public class MainFrame extends JFrame{
 		selection.getBackButton().addActionListener(e);
 		load.getOkButton().addActionListener(e);
 		load.getBackButton().addActionListener(e);
+		this.board.getMoveButton().addActionListener(e);
+		this.board.getReleaseButton().addActionListener(e);
 		this.setGridListener();
 		add(menu);
 
