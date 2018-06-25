@@ -73,6 +73,7 @@ public class Board implements Serializable  {
 			}
 			moved=true;
 		}
+		
 		this.frame.getBoardPanel().setBoard(this.grid);
 		//if the move is not valid, we dont do anything and simply return false,
 		//stating that the move hasn't been done

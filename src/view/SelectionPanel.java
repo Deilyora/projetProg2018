@@ -5,6 +5,8 @@ import java.awt.*;
 public class SelectionPanel extends JPanel {
 	
 	private JButton ok;
+	private JLabel nplayer1;
+	private JLabel nplayer2;
 	private JTextField player1;
 	private JTextField player2;
 	private JRadioButton pvp;
@@ -15,9 +17,11 @@ public class SelectionPanel extends JPanel {
 	
 	public SelectionPanel() {
 		this.ok = new JButton("OK");
-		this.player1 = new JTextField("Player 1 name");
-		this.player2 = new JTextField("Player 2 name");		
-		this.pvp = new JRadioButton("Player vs Player");
+		this.nplayer1 = new JLabel("Player 1 name :");
+		this.nplayer2 = new JLabel("Player 2 name :");	
+		this.player1 = new JTextField("Player1");
+		this.player2 = new JTextField("Player2");		
+		this.pvp = new JRadioButton("Player vs Player", true);
 		this.pve = new JRadioButton("Player vs AI");
 		this.eve = new JRadioButton("AI vs AI");
 		this.mode = new ButtonGroup();
@@ -25,8 +29,10 @@ public class SelectionPanel extends JPanel {
 		mode.add(pvp);
 		mode.add(pve);
 		mode.add(eve);
-		setLayout(new GridLayout(7,1));
+		setLayout(new GridLayout(9,1));
+		add(nplayer1);
 		add(player1);
+		add(nplayer2);
 		add(player2);
 		add(pvp);
 		add(pve);
