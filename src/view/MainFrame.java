@@ -22,15 +22,29 @@ public class MainFrame extends JFrame{
 	public MainFrame(){
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setTitle("ARCANOR");
-	//	PopUp thePopUp = new PopUp();
-	//	MenuPanel menu = new MenuPanel();
-		this.board = new BoardPanel();
-	//	PausePanel pause = new PausePanel();
-	//	ChoosePanel choose = new ChoosePanel();
 
+		PopUp thePopUp = new PopUp();
+		MenuPanel menu = new MenuPanel();
+		BoardPanel board = new BoardPanel();
+		PausePanel pause = new PausePanel();
+		SelectionPanel selection = new SelectionPanel();
+		LoadPanel load = new LoadPanel();
+		EventOnGame e = new EventOnGame(this, menu, board, pause, thePopUp, selection, load);
+		menu.getNewGameButton().addActionListener(e);
+		menu.getLoadGameButton().addActionListener(e);
+		menu.getQuitButton().addActionListener(e);
+		pause.getSaveButton().addActionListener(e);
+		pause.getQuitButton().addActionListener(e);
+		pause.getBackButton().addActionListener(e);
+		thePopUp.getEndButton().addActionListener(e);
+		selection.getOkButton().addActionListener(e);
+		selection.getBackButton().addActionListener(e);
+		load.getOkButton().addActionListener(e);
+		load.getBackButton().addActionListener(e);
+		add(menu);
 
-		add(board);
 		pack();
+		setSize(500,500);
 	}
 
 
