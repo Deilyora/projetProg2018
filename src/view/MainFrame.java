@@ -60,7 +60,7 @@ public class MainFrame extends JFrame{
 		return this.board;
 	}
 	public void setFrame(JPanel oldFrame, JPanel newFrame, boolean hideBoard, boolean displayBoard) {
-		if (hideBoard) {
+		/*if (hideBoard) {
 			oldFrame.setVisible(false);
 			add(newFrame);
 			revalidate();
@@ -72,11 +72,12 @@ public class MainFrame extends JFrame{
 			revalidate();
 			pack();
 		}
-		else {
+		else {*/
 			remove(oldFrame);
 			add(newFrame);
 			revalidate();
+			repaint();
 			pack();
-		}
+		//}
 	}
 }

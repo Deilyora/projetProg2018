@@ -1,7 +1,7 @@
 package data;
 import java.util.ArrayList;
 import java.io.*;
-import view.*;
+//import view.*;
 /**
 * This class represents the game board.
 * It represent the game with a 2D array of squares.
@@ -15,16 +15,16 @@ public class Board implements Serializable  {
 	public static final String ANSI_RESET = "\033[0m";
 	public static final String ANSI_GREEN = "\u001B[32m";
 	public static final String ANSI_RED = "\u001B[31m";
-	private MainFrame frame;
+	//private MainFrame frame;
 
 	public Board(int width, int height,Square[][] grid) {
 		this.width = width;
 		this.height = height;
 		this.grid = grid;
 		this.frozenList = new ArrayList<Square>();
-		this.frame=new MainFrame();
-		frame.setVisible(true);
-		this.frame.getBoardPanel().setBoard(this.grid);
+	//	this.frame=new MainFrame();
+	//	frame.setVisible(true);
+	//	this.frame.getBoardPanel().setBoard(this.grid);
 	}
 
 	/**
@@ -74,7 +74,7 @@ public class Board implements Serializable  {
 			moved=true;
 		}
 		
-		this.frame.getBoardPanel().setBoard(this.grid);
+		//this.frame.getBoardPanel().setBoard(this.grid);
 		//if the move is not valid, we dont do anything and simply return false,
 		//stating that the move hasn't been done
 		return moved;
