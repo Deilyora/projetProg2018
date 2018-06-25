@@ -25,7 +25,7 @@ public class MainFrame extends JFrame{
 
 		PopUp thePopUp = new PopUp();
 		MenuPanel menu = new MenuPanel();
-		BoardPanel board = new BoardPanel();
+		board = new BoardPanel();
 		PausePanel pause = new PausePanel();
 		SelectionPanel selection = new SelectionPanel();
 		LoadPanel load = new LoadPanel();
