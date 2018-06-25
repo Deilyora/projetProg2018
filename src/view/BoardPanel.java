@@ -21,20 +21,16 @@ public class BoardPanel extends JPanel{
 				theGrid[i][j]=new Square(i,j);
 			}
 		}
-		this.initializeBoard(theGrid);
-	}
-	public void initializeBoard(Square[][] grid){
 		setLayout(new GridLayout(this.height,this.width));
-		java.awt.Color temp;
+
+		this.setBoard(theGrid);
+	}
+	public void setBoard(Square[][] grid){
+		removeAll();
 		ImageIcon img= null;
-		for(int i=0;i<height;i++){
-			if(i%2==0){
-				temp=white;
-			}
-			else{
-				temp=black;
-			}
-			for(int j=0;j<width;j++){
+		for(int i=0;i<this.height;i++){
+
+			for(int j=0;j<this.width;j++){
 				Square theSquare=grid[i][j];
 				Pawn greaterPawn = null;
 				int rep=1;
@@ -45,7 +41,6 @@ public class BoardPanel extends JPanel{
 				else {
 					rep=0;
 				}
-
 				if (greaterPawn != null) {
 
 					if (greaterPawn instanceof PawnS1 && greaterPawn.getColor()==data.Color.RED) {
@@ -105,14 +100,10 @@ public class BoardPanel extends JPanel{
 					break;
 				}
 				GridButton button=new GridButton(img,i,j);
-				button.setBackground(temp);
+				button.setBackground(white);
 				add(button);
-				if(temp.equals(white)){
-					temp=black;
-				}
-				else{
-					temp=white;
-				}
+				revalidate();
+				repaint();
 			}
 		}
 	}
