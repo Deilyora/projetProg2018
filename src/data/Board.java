@@ -15,23 +15,12 @@ public class Board implements Serializable  {
 	public static final String ANSI_RESET = "\033[0m";
 	public static final String ANSI_GREEN = "\u001B[32m";
 	public static final String ANSI_RED = "\u001B[31m";
-	private MainFrame frame;
 
 	public Board(int width, int height,Square[][] grid) {
 		this.width = width;
 		this.height = height;
 		this.grid = grid;
 		this.frozenList = new ArrayList<Square>();
-
-		this.showGUI();
-	}
-	public void showGUI(){
-		this.frame=new MainFrame();
-		frame.setVisible(true);
-		this.frame.getBoardPanel().boardInit(this);
-		this.frame.getBoardPanel().setBoard(this.grid);
-		this.frame.getBoardPanel().setScore();
-
 	}
 	/**
 	* Move the pawn to the chosen location.
@@ -81,8 +70,7 @@ public class Board implements Serializable  {
 		}
 
 
-		this.frame.getBoardPanel().setBoard(this.grid);
-		this.frame.getBoardPanel().setScore();
+
 		//if the move is not valid, we dont do anything and simply return false,
 		//stating that the move hasn't been done
 		return moved;
