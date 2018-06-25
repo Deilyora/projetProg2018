@@ -111,6 +111,7 @@ public class ChooseGame {
 		try {
 			ObjectInputStream in = new ObjectInputStream(new FileInputStream(filename));
 			Game loadedGame = (Game) in.readObject();
+			loadedGame.getBoard().showGUI();
 			loadedGame.runGame();
 
 		}

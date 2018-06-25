@@ -128,7 +128,9 @@ public class Game implements Serializable {
 	public void setPlayer2(Player player2) {
 		this.player2 = player2;
 	}
-
+	public Board getBoard(){
+		return this.board;
+	}
 
 	/**
 	* Creates the players

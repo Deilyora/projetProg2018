@@ -11,8 +11,16 @@ public class BoardPanel extends JPanel{
 	private static final int height = 7;
 	private static final int width = 8;
 	private static java.awt.Color white=java.awt.Color.WHITE;
+	private Board theBoard;
+	private JLabel red;
+	private JLabel redScore;
+	private JLabel green;
+	private JLabel greenScore;
 	private JPanel center;
-
+	private JPanel bottom;
+	private JPanel right;
+	private JButton move;
+	private JButton release;
 	public BoardPanel(){
 		Square[][] theGrid=new Square[this.height][this.width];
 		for(int i=0;i<height;i++){
@@ -20,22 +28,42 @@ public class BoardPanel extends JPanel{
 				theGrid[i][j]=new Square(i,j);
 			}
 		}
-
-
 		this.center = new JPanel();
-		center.setLayout(new GridLayout(this.height,this.width));
-		JPanel right = new JPanel();
-
-		JPanel bottom = new JPanel();
-		setLayout(new BorderLayout());
-		add(center, BorderLayout.CENTER);
-		add(right, BorderLayout.EAST);
-		add(bottom, BorderLayout.SOUTH);
-
+		this.center.setLayout(new GridLayout(this.height,this.width));
 		this.setBoard(theGrid);
+
+		this.bottom= new JPanel();
+		this.bottom.setLayout(new FlowLayout());
+		this.move=new JButton("Move");
+		this.release=new JButton("Move and release");
+		this.bottom.add(move);
+		this.bottom.add(release);
+
+		this.right= new JPanel();
+		this.right.setLayout(new GridLayout(4,1));
+		this.red=new JLabel("RED");
+		this.redScore=new JLabel("0");
+		this.greenScore=new JLabel("0");
+		this.green=new JLabel("GREEN");
+		this.right.add(red);
+		this.right.add(redScore);
+		this.right.add(greenScore);
+		this.right.add(green);
+
+		setLayout(new BorderLayout());
+		add(center,BorderLayout.CENTER);
+		add(bottom,BorderLayout.SOUTH);
+		add(right,BorderLayout.EAST);
+	}
+	public void boardInit(Board theBoard){
+		this.theBoard=theBoard;
+	}
+	public void setScore(){
+		this.redScore.setText(""+this.theBoard.getPoints(data.Color.RED));
+		this.greenScore.setText(""+this.theBoard.getPoints(data.Color.GREEN));
 	}
 	public void setBoard(Square[][] grid){
-		removeAll();
+		this.center.removeAll();
 		ImageIcon img= null;
 		for(int i=0;i<this.height;i++){
 
