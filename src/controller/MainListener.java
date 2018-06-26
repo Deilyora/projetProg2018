@@ -1,6 +1,7 @@
 package controller;
 import data.*;
 import view.*;
+import java.io.*;
 import java.awt.event.*;
 /**
 * This class handles all the action on the GUI.
@@ -14,6 +15,7 @@ public class MainListener implements ActionListener{
 	private PopUp popUp;
 	private SelectionPanel selection;
 	private LoadPanel load;
+	private SavePanel save;
 	private int buttonPressed;
 	private Game game;
 	private int oldX;
@@ -21,7 +23,7 @@ public class MainListener implements ActionListener{
 	private int newX;
 	private int newY;
 
-	public MainListener(MainFrame theMain, MenuPanel menu, BoardPanel board, PausePanel pause, PopUp popUp, SelectionPanel selection, LoadPanel load) {
+	public MainListener(MainFrame theMain, MenuPanel menu, BoardPanel board, PausePanel pause, PopUp popUp, SelectionPanel selection, LoadPanel load,SavePanel save) {
 		this.theMain = theMain;
 		this.menu = menu;
 		this.board = board;
@@ -29,6 +31,7 @@ public class MainListener implements ActionListener{
 		this.popUp = popUp;
 		this.selection = selection;
 		this.load = load;
+		this.save=save;
 		this.buttonPressed=0;
 		this.game=null;
 		this.oldX=-1;
@@ -53,6 +56,7 @@ public class MainListener implements ActionListener{
 		}
 		else if (ev.getSource() == pause.getSaveButton()) {
 			//Sauvegarde
+			theMain.setFrame(pause,save);
 		}
 		else if (ev.getSource() == pause.getQuitButton()) {
 			System.exit(0);
@@ -94,6 +98,8 @@ public class MainListener implements ActionListener{
 		}
 		else if (ev.getSource() == load.getOkButton()) {
 			//check if file exists
+			String fileName=this.load.getFileName();
+			this.loadGame(fileName);
 			theMain.setFrame(load,board);
 		}
 		else if (ev.getSource() == load.getBackButton()) {
@@ -143,6 +149,12 @@ public class MainListener implements ActionListener{
 		else if (ev.getSource() == board.getPauseButton()) {
 			theMain.setFrame(board, pause);
 		}
+		else if(ev.getSource()==save.getSavedButton()){
+			System.out.println("yolo");
+			String nameSave=save.getSaveName();
+			this.game.saveGame(nameSave);
+			theMain.setFrame(save,board);
+		}
 		else if(ev.getSource() instanceof GridButton){
 			this.buttonPressed++;
 			GridButton button=(GridButton)ev.getSource();
@@ -163,5 +175,29 @@ public class MainListener implements ActionListener{
 			}
 		}
 	}
-
+	/**
+	 * This method is used to load an existing game from a file using its name
+	 * @param the name of the file
+	 */
+	private void loadGame(String filename) {
+		try {
+			ObjectInputStream in = new ObjectInputStream(new FileInputStream("../save/"+filename));
+			Game loadedGame = (Game) in.readObject();
+			this.game=loadedGame;
+			this.board.boardInit(this.game.getBoard());
+			this.board.setBoard(this.game.getBoard().getGrid());
+			this.board.setScore();
+			theMain.setGridListener();
+			theMain.setFrame(load,board);
+		}
+		catch (FileNotFoundException e) {
+			System.out.println("Error - File not found :"+filename);
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }

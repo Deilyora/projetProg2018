@@ -37,7 +37,9 @@ public class MainFrame extends JFrame{
 		PausePanel pause = new PausePanel();
 		SelectionPanel selection = new SelectionPanel();
 		LoadPanel load = new LoadPanel();
-		this.e = new MainListener(this, menu, board, pause, thePopUp, selection, load);
+		SavePanel save= new SavePanel();
+		this.e = new MainListener(this, menu, board, pause, thePopUp, selection, load,save);
+		save.getSavedButton().addActionListener(e);
 		menu.getNewGameButton().addActionListener(e);
 		menu.getLoadGameButton().addActionListener(e);
 		menu.getQuitButton().addActionListener(e);
@@ -56,7 +58,7 @@ public class MainFrame extends JFrame{
 		add(menu);
 
 		pack();
-		
+
 	}
 	/**
 	 * This method creates action listeners for all the buttons on the play grid
@@ -79,13 +81,13 @@ public class MainFrame extends JFrame{
 		});
 	}
 	/**
-	 * Gets the board panel 
+	 * Gets the board panel
 	 * @return the board panel
 	 */
 	public BoardPanel getBoardPanel(){
 		return this.board;
 	}
-	
+
 	/**
 	 * This method is used when the user clicks on a button that goes to another frame
 	 * the old frame is removed and the new one is displayed
