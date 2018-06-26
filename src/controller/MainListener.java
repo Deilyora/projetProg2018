@@ -102,12 +102,16 @@ public class MainListener implements ActionListener{
 		else if (ev.getSource() == board.getMoveButton()) {
 			Player player=game.getCurrentPlayer();
 			boolean bool=game.getBoard().movePawn(oldX,oldY,newX,newY,false,player);
-			if(bool){
-				game.setCurrentPlayer();
-			}
 			this.board.setBoard(game.getBoard().getGrid());
 			this.board.setScore();
 			theMain.setGridListener();
+			if(this.game.getBoard().getPoints(player.getColor()) >= 12){
+				theMain.setFrame(board,popUp);
+			}
+			if(bool){
+				game.setCurrentPlayer();
+			}
+
 			if(game.getCurrentPlayer() instanceof AIPlayer){
 				game.getCurrentPlayer().play();
 				game.setCurrentPlayer();
@@ -119,12 +123,15 @@ public class MainListener implements ActionListener{
 		else if (ev.getSource() == board.getReleaseButton()) {
 			Player player=game.getCurrentPlayer();
 			boolean bool=game.getBoard().movePawn(oldX,oldY,newX,newY,true,player);
-			if(bool){
-				game.setCurrentPlayer();
-			}
 			this.board.setBoard(game.getBoard().getGrid());
 			this.board.setScore();
 			theMain.setGridListener();
+			if(this.game.getBoard().getPoints(player.getColor()) >= 12){
+				theMain.setFrame(board,popUp);
+			}
+			if(bool){
+				game.setCurrentPlayer();
+			}
 			if(game.getCurrentPlayer() instanceof AIPlayer){
 				game.getCurrentPlayer().play();
 				game.setCurrentPlayer();
