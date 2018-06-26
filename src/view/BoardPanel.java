@@ -21,8 +21,8 @@ public class BoardPanel extends JPanel{
 	private JPanel right;
 	private JButton move;
 	private JButton release;
-	private ArrayList<GridButton> buttonsGrid
-	
+	private ArrayList<GridButton> buttonsGrid;
+
 	/**
 	 * The constructor of boardpanel : initialize the grid with the pawns and the other buttons around the grid
 	 */
@@ -69,7 +69,7 @@ public class BoardPanel extends JPanel{
 	public void boardInit(Board theBoard){
 		this.theBoard=theBoard;
 	}
-	
+
 	/**
 	 * Gets the grid with button used to play pawns
 	 * @return the arraylist of gridButtons
@@ -77,7 +77,7 @@ public class BoardPanel extends JPanel{
 	public ArrayList<GridButton> getButtonsGrid(){
 		return this.buttonsGrid;
 	}
-	
+
 	/**
 	 * gets the button to click to move a pawns
 	 * @return the move button

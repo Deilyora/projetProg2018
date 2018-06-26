@@ -43,10 +43,10 @@ public class MainListener implements ActionListener{
 	*/
 	public void actionPerformed(ActionEvent ev) {
 		if (ev.getSource() == menu.getNewGameButton()) {
-			theMain.setFrame(menu,selection,false,false);
+			theMain.setFrame(menu,selection);
 		}
 		else if (ev.getSource() == menu.getLoadGameButton()) {
-			theMain.setFrame(menu,load,false,false);
+			theMain.setFrame(menu,load);
 		}
 		else if (ev.getSource() == menu.getQuitButton()) {
 			System.exit(0);
@@ -58,7 +58,7 @@ public class MainListener implements ActionListener{
 			System.exit(0);
 		}
 		else if (ev.getSource() == pause.getBackButton()) {
-			theMain.setFrame(pause,board,false,true);
+			theMain.setFrame(pause,board);
 		}
 		else if (ev.getSource() == selection.getOkButton()) {
 			String playerName1 = selection.getPlayer1().getText();
@@ -82,22 +82,22 @@ public class MainListener implements ActionListener{
 			this.board.setBoard(theGame.getBoard().getGrid());
 			this.board.setScore();
 			theMain.setGridListener();
-			theMain.setFrame(selection,board,false,true);
+			theMain.setFrame(selection,board);
 			//theGame.runGame();
 
 		}
 		else if (ev.getSource() == selection.getBackButton()) {
-			theMain.setFrame(selection,menu,false,false);
+			theMain.setFrame(selection,menu);
 		}
 		else if (ev.getSource() == popUp.getEndButton()) {
 			System.exit(0);
 		}
 		else if (ev.getSource() == load.getOkButton()) {
 			//check if file exists
-			theMain.setFrame(load,board,false,true);
+			theMain.setFrame(load,board);
 		}
 		else if (ev.getSource() == load.getBackButton()) {
-			theMain.setFrame(load,menu,false,false);
+			theMain.setFrame(load,menu);
 		}
 		else if (ev.getSource() == board.getMoveButton()) {
 			Player player=game.getCurrentPlayer();
@@ -108,6 +108,13 @@ public class MainListener implements ActionListener{
 			this.board.setBoard(game.getBoard().getGrid());
 			this.board.setScore();
 			theMain.setGridListener();
+			if(game.getCurrentPlayer() instanceof AIPlayer){
+				game.getCurrentPlayer().play();
+				game.setCurrentPlayer();
+				this.board.setBoard(game.getBoard().getGrid());
+				this.board.setScore();
+				theMain.setGridListener();
+			}
 		}
 		else if (ev.getSource() == board.getReleaseButton()) {
 			Player player=game.getCurrentPlayer();
@@ -118,6 +125,13 @@ public class MainListener implements ActionListener{
 			this.board.setBoard(game.getBoard().getGrid());
 			this.board.setScore();
 			theMain.setGridListener();
+			if(game.getCurrentPlayer() instanceof AIPlayer){
+				game.getCurrentPlayer().play();
+				game.setCurrentPlayer();
+				this.board.setBoard(game.getBoard().getGrid());
+				this.board.setScore();
+				theMain.setGridListener();
+			}
 		}
 		else if(ev.getSource() instanceof GridButton){
 			this.buttonPressed++;
