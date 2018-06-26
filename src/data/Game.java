@@ -24,6 +24,7 @@ public class Game implements Serializable {
 		Square[][] theGrid = initializeGrid(height, width, arrayp1, arrayp2);
 		this.board = new Board(width, height, theGrid);
 		createPlayers(playerName1,playerName2,arrayp1,arrayp2, theMode);
+		this.current=this.player2;
 	}
 
 	/**
@@ -128,6 +129,17 @@ public class Game implements Serializable {
 	public void setPlayer2(Player player2) {
 		this.player2 = player2;
 	}
+	public Player getCurrentPlayer(){
+		return this.current;
+	}
+	public void setCurrentPlayer(){
+		if (this.current == this.player1) {
+			this.current = this.player2;
+		}
+		else {
+			this.current = this.player1;
+		}
+	}
 	public Board getBoard(){
 		return this.board;
 	}
@@ -165,12 +177,7 @@ public class Game implements Serializable {
 		System.out.println(this.board);
 		while (this.board.getPoints(this.current.getColor()) < 12) {
 
-			if (this.current == this.player1) {
-				this.current = this.player2;
-			}
-			else {
-				this.current = this.player1;
-			}
+			this.setCurrentPlayer();
 			System.out.println(current.getPlayerName()+"'s turn");
 			this.current.play();
 			System.out.println(this.board);

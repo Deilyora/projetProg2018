@@ -75,6 +75,7 @@ public class MainListener implements ActionListener{
 			}
 
 			Game theGame = new Game(playerName1, playerName2, mode, 7, 8);
+			theGame.setCurrentPlayer();
 			this.game=theGame;
 
 			this.board.boardInit(theGame.getBoard());
@@ -99,13 +100,21 @@ public class MainListener implements ActionListener{
 			theMain.setFrame(load,menu,false,false);
 		}
 		else if (ev.getSource() == board.getMoveButton()) {
-			boolean bool=game.getBoard().movePawn(oldX,oldY,newX,newY,false,game.getPlayer1());
+			Player player=game.getCurrentPlayer();
+			boolean bool=game.getBoard().movePawn(oldX,oldY,newX,newY,false,player);
+			if(bool){
+				game.setCurrentPlayer();
+			}
 			this.board.setBoard(game.getBoard().getGrid());
 			this.board.setScore();
 			theMain.setGridListener();
 		}
 		else if (ev.getSource() == board.getReleaseButton()) {
-			boolean bool=game.getBoard().movePawn(oldX,oldY,newX,newY,true,game.getPlayer1());
+			Player player=game.getCurrentPlayer();
+			boolean bool=game.getBoard().movePawn(oldX,oldY,newX,newY,true,player);
+			if(bool){
+				game.setCurrentPlayer();
+			}
 			this.board.setBoard(game.getBoard().getGrid());
 			this.board.setScore();
 			theMain.setGridListener();
