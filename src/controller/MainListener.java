@@ -133,6 +133,9 @@ public class MainListener implements ActionListener{
 				theMain.setGridListener();
 			}
 		}
+		else if (ev.getSource() == board.getPauseButton()) {
+			theMain.setFrame(board, pause);
+		}
 		else if(ev.getSource() instanceof GridButton){
 			this.buttonPressed++;
 			GridButton button=(GridButton)ev.getSource();
