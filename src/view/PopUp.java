@@ -10,6 +10,9 @@ public class PopUp extends JPanel {
 	private JLabel message;
 	private JButton end;
 	
+	/**
+	 * the constructor that creates all components of the frame
+	 */
 	public PopUp(){
 		this.message = new JLabel("Game ended");
 		this.end = new JButton("QUIT");
@@ -19,6 +22,10 @@ public class PopUp extends JPanel {
 		setSize(500,500);
 	}
 	
+	/**
+	 * Return the button that the user clicks to close the game
+	 * @return the end button
+	 */
 	public JButton getEndButton() {
 		return this.end;
 	}

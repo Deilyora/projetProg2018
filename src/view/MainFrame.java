@@ -70,7 +70,7 @@ public class MainFrame extends JFrame{
 	public BoardPanel getBoardPanel(){
 		return this.board;
 	}
-	public void setFrame(JPanel oldFrame, JPanel newFrame, boolean hideBoard, boolean displayBoard) {
+	public void setFrame(JPanel oldFrame, JPanel newFrame) {
 		remove(oldFrame);
 		add(newFrame);
 		revalidate();

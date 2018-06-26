@@ -21,7 +21,11 @@ public class BoardPanel extends JPanel{
 	private JPanel right;
 	private JButton move;
 	private JButton release;
-	private ArrayList<GridButton> buttonsGrid;
+	private ArrayList<GridButton> buttonsGrid
+	
+	/**
+	 * The constructor of boardpanel : initialize the grid with the pawns and the other buttons around the grid
+	 */
 	public BoardPanel(){
 		this.buttonsGrid=new ArrayList<GridButton>();
 		Square[][] theGrid=new Square[this.height][this.width];
@@ -57,22 +61,48 @@ public class BoardPanel extends JPanel{
 		add(bottom,BorderLayout.SOUTH);
 		add(right,BorderLayout.EAST);
 	}
+
+	/**
+	 * Initialize the Board (used to display the score)
+	 * @param theBoard the current board
+	 */
 	public void boardInit(Board theBoard){
 		this.theBoard=theBoard;
 	}
+	
+	/**
+	 * Gets the grid with button used to play pawns
+	 * @return the arraylist of gridButtons
+	 */
 	public ArrayList<GridButton> getButtonsGrid(){
 		return this.buttonsGrid;
 	}
+	
+	/**
+	 * gets the button to click to move a pawns
+	 * @return the move button
+	 */
 	public JButton getMoveButton(){
 		return this.move;
 	}
+	/**
+	 * gets the button to click to release a pawns
+	 * @return the release button
+	 */
 	public JButton getReleaseButton(){
 		return this.release;
 	}
+	/**
+	 * This method is used to display the score on the interface
+	 */
 	public void setScore(){
 		this.redScore.setText(""+this.theBoard.getPoints(data.Color.RED));
 		this.greenScore.setText(""+this.theBoard.getPoints(data.Color.GREEN));
 	}
+	/**
+	 * This method creates the board of buttons using the grid of the game to place pawns and their color at the right place, displaying a real pawn on the button
+	 * @param grid the grid with the placement of the pawns
+	 */
 	public void setBoard(Square[][] grid){
 		this.center.removeAll();
 		ImageIcon img= null;
