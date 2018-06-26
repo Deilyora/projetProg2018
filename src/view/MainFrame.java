@@ -8,9 +8,11 @@ import controller.*;
 * This class creates the MainFrame of the game. It manages all the different panels of the game :
 * The popup menu when the game is over
 * The Menu when you start the game
+* The Menu when you load a game
 * The board of the current game
 * The in game pause menu
 * The options panel
+* The popup when the game is over
 */
 public class MainFrame extends JFrame{
 
@@ -22,6 +24,9 @@ public class MainFrame extends JFrame{
 	private BoardPanel board;
 	private MainListener e;
 
+	/**
+	 * The constructor of the MainFrame that creates all the different panels and add the listener on all the buttons
+	 */
 	public MainFrame(){
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setTitle("ARCANOR");
@@ -52,6 +57,9 @@ public class MainFrame extends JFrame{
 		pack();
 		setSize(500,500);
 	}
+	/**
+	 * This method creates action listeners for all the buttons on the play grid
+	 */
 	public void setGridListener(){
 		ArrayList<GridButton> grid=this.board.getButtonsGrid();
 		for(GridButton b : grid){
@@ -59,7 +67,9 @@ public class MainFrame extends JFrame{
 		}
 	}
 
-
+	/**
+	 * The main of the class used to launch the Frame
+	 */
 	public static void main(String args[]) {
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -67,9 +77,18 @@ public class MainFrame extends JFrame{
 			}
 		});
 	}
+	/**
+	 * Gets the board panel 
+	 * @return the board panel
+	 */
 	public BoardPanel getBoardPanel(){
 		return this.board;
 	}
+	
+	/**
+	 * This method is used when the user clicks on a button that goes to another frame
+	 * the old frame is removed and the new one is displayed
+	 */
 	public void setFrame(JPanel oldFrame, JPanel newFrame) {
 		remove(oldFrame);
 		add(newFrame);

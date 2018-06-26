@@ -106,7 +106,11 @@ public class ChooseGame {
 		Game theGame = new Game(playerName1, playerName2, theMode, height, width);
 		theGame.runGame();
 	}
-
+	
+	/**
+	 * This method is used to load an existing game from a file using its name
+	 * @param the name of the file
+	 */
 	private void loadGame(String filename) {
 		try {
 			ObjectInputStream in = new ObjectInputStream(new FileInputStream(filename));
