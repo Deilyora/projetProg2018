@@ -19,8 +19,10 @@ public class BoardPanel extends JPanel{
 	private JPanel center;
 	private JPanel bottom;
 	private JPanel right;
+	private JPanel top;
 	private JButton move;
 	private JButton release;
+	private JButton pause;
 	private ArrayList<GridButton> buttonsGrid;
 
 	/**
@@ -55,7 +57,12 @@ public class BoardPanel extends JPanel{
 		this.right.add(redScore);
 		this.right.add(greenScore);
 		this.right.add(green);
+		this.pause = new JButton("Pause");
 
+		this.top = newJPanel();
+		this.top.setLayout(new FlowLayout());
+		this.top.add(pause);
+		
 		setLayout(new BorderLayout());
 		add(center,BorderLayout.CENTER);
 		add(bottom,BorderLayout.SOUTH);
@@ -91,6 +98,13 @@ public class BoardPanel extends JPanel{
 	 */
 	public JButton getReleaseButton(){
 		return this.release;
+	}
+	/**
+	 * gets the button to pause the game
+	 * @return the pause button
+	 */
+	public JButton getPauseButton() {
+		return this.pause;
 	}
 	/**
 	 * This method is used to display the score on the interface
