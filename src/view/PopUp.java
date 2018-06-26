@@ -21,6 +21,10 @@ public class PopUp extends JPanel {
 		add(end);
 
 	}
+	/**
+	* Returns the message label
+	* @return the message label
+	*/
 	public JLabel getMessage(){
 		return this.message;
 	}

@@ -253,6 +253,9 @@ public class Board implements Serializable  {
 		return this.height;
 	}
 	/**
+	* Returns the number of points the player with given color has
+	* @param color the color of the player
+	* @return the number of points
 	*/
 	public int getPoints(Color color){
 		int ret=0;

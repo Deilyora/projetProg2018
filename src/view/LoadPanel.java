@@ -36,6 +36,10 @@ public class LoadPanel extends JPanel {
 	public JButton getOkButton() {
 		return this.ok;
 	}
+	/**
+	* Returns the name of the file entered
+	* @return the name of the file
+	*/
 	public String getFileName(){
 		return this.filename.getText();
 	}
