@@ -42,7 +42,7 @@ public class SelectionPanel extends JPanel {
 		add(pve);
 		add(ok);
 		add(back);
-		setSize(500,500);
+		
 		
 	}
 

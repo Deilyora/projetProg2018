@@ -27,7 +27,7 @@ public class PausePanel extends JPanel{
 		add(title);
 		add(save);
 		add(quit);
-		setSize(500,500);
+		
 	}
 	/**
 	 * Return the button used to save the game

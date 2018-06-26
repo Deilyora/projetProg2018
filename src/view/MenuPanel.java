@@ -25,7 +25,7 @@ public class MenuPanel extends JPanel{
 		add(this.newGame);
 		add(this.loadGame);
 		add(this.quit);
-		setSize(500,500);
+		
 		
 	}
 	/**

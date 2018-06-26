@@ -19,7 +19,7 @@ public class PopUp extends JPanel {
 		setLayout(new GridLayout(2,1));
 		add(message);
 		add(end);
-		setSize(500,500);
+		
 	}
 	
 	/**

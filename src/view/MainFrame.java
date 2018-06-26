@@ -51,11 +51,12 @@ public class MainFrame extends JFrame{
 		load.getBackButton().addActionListener(e);
 		this.board.getMoveButton().addActionListener(e);
 		this.board.getReleaseButton().addActionListener(e);
+		this.board.getPauseButton().addActionListener(e);
 		this.setGridListener();
 		add(menu);
 
 		pack();
-		setSize(500,500);
+		
 	}
 	/**
 	 * This method creates action listeners for all the buttons on the play grid

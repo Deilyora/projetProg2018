@@ -25,7 +25,7 @@ public class LoadPanel extends JPanel {
 		add(empty);
 		add(ok);
 		add(back);
-		setSize(500,500);
+		
 	}
 	
 	/**

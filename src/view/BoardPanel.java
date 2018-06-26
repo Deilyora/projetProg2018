@@ -59,11 +59,12 @@ public class BoardPanel extends JPanel{
 		this.right.add(green);
 		this.pause = new JButton("Pause");
 
-		this.top = newJPanel();
+		this.top = new JPanel();
 		this.top.setLayout(new FlowLayout());
 		this.top.add(pause);
 		
 		setLayout(new BorderLayout());
+		add(top, BorderLayout.NORTH);
 		add(center,BorderLayout.CENTER);
 		add(bottom,BorderLayout.SOUTH);
 		add(right,BorderLayout.EAST);
