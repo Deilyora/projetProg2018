@@ -28,7 +28,13 @@ public class Game implements Serializable {
 	}
 
 	/**
-	*
+	* This method initializes the grid which will be given to the board.
+	* It also initializes the pawnList of both players
+	* @param heigth the height of the board
+	* @param width the width of the board
+	* @param arrayP1 the pawnList of player1
+	* @param arrayP2 the pawnList of player2
+	* @return a 2D array of square with all pawns initialized in it
 	*/
 	private Square[][] initializeGrid(int height,int width,ArrayList<Pawn> arrayP1,ArrayList<Pawn> arrayP2){
 		Square[][] grid=new Square[height][width];
@@ -129,9 +135,16 @@ public class Game implements Serializable {
 	public void setPlayer2(Player player2) {
 		this.player2 = player2;
 	}
+	/**
+	* Returns current player
+	* @return current player
+	*/
 	public Player getCurrentPlayer(){
 		return this.current;
 	}
+	/**
+	* Makes the current player swap between player1 and player2
+	*/
 	public void setCurrentPlayer(){
 		if (this.current == this.player1) {
 			this.current = this.player2;
@@ -140,6 +153,10 @@ public class Game implements Serializable {
 			this.current = this.player1;
 		}
 	}
+	/**
+	* Returns the game board
+	* @return the game board
+	*/
 	public Board getBoard(){
 		return this.board;
 	}
@@ -212,7 +229,7 @@ public class Game implements Serializable {
 	*/
 	public void saveGame(String fileName) {
 		try {
-			ObjectOutputStream out =  new ObjectOutputStream(new FileOutputStream("../save/"+fileName));
+			ObjectOutputStream out =  new ObjectOutputStream(new FileOutputStream("save/"+fileName));
 			out.writeObject(this);
 			out.close();
 			System.exit(0);

@@ -179,31 +179,31 @@ public class BoardPanel extends JPanel{
 				}
 				switch(rep){
 					case 0:
-					img=new ImageIcon("../image/void.png");
+					img=new ImageIcon("image/void.png");
 					break;
 					case 1:
-					img=new ImageIcon("../image/1R.png");
+					img=new ImageIcon("image/1R.png");
 					break;
 					case 2:
-					img=new ImageIcon("../image/2R.png");
+					img=new ImageIcon("image/2R.png");
 					break;
 					case 3:
-					img=new ImageIcon("../image/3R.png");
+					img=new ImageIcon("image/3R.png");
 					break;
 					case 4:
-					img=new ImageIcon("../image/4R.png");
+					img=new ImageIcon("image/4R.png");
 					break;
 					case 5:
-					img=new ImageIcon("../image/1V.png");
+					img=new ImageIcon("image/1V.png");
 					break;
 					case 6:
-					img=new ImageIcon("../image/2V.png");
+					img=new ImageIcon("image/2V.png");
 					break;
 					case 7:
-					img=new ImageIcon("../image/3V.png");
+					img=new ImageIcon("image/3V.png");
 					break;
 					case 8:
-					img=new ImageIcon("../image/4V.png");
+					img=new ImageIcon("image/4V.png");
 					break;
 					default:
 					break;

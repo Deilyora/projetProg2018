@@ -236,13 +236,7 @@ public class Board implements Serializable  {
 		}
 		return ret;
 	}
-	/**
-	*
-	*/
-	private boolean belongsTo(Pawn pawn,Player player){
-		boolean ret=false;
-		return ret;
-	}
+
 	/**
 	* Returns the board width
 	* @return the board width
@@ -310,6 +304,10 @@ public class Board implements Serializable  {
 		return rep;
 	}
 
+	/**
+	* This method returns the board's grid
+	* @return the board's grid
+	*/
 	public Square[][] getGrid(){
 		return this.grid;
 	}

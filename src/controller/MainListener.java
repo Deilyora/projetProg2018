@@ -191,7 +191,7 @@ public class MainListener implements ActionListener{
 	 */
 	private void loadGame(String filename) {
 		try {
-			ObjectInputStream in = new ObjectInputStream(new FileInputStream("../save/"+filename));
+			ObjectInputStream in = new ObjectInputStream(new FileInputStream("save/"+filename));
 			Game loadedGame = (Game) in.readObject();
 			this.game=loadedGame;
 			this.board.boardInit(this.game.getBoard());
