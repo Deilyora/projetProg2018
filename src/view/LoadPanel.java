@@ -8,6 +8,7 @@ import java.awt.*;
  */
 public class LoadPanel extends JPanel {
 
+	private JLabel name;
 	private JTextField filename;
 	private JButton ok;
 	private JButton back;
@@ -16,13 +17,13 @@ public class LoadPanel extends JPanel {
 	 * The constructor of the panel containing all the elements to display
 	 */
 	public LoadPanel() {
-		this.filename = new JTextField("name of the save");
+		this.filename = new JTextField();
+		this.name= new JLabel("Name of the save");
 		this.ok = new JButton("OK");
 		this.back = new JButton("BACK");
-		JLabel empty = new JLabel(" ");
-		setLayout(new GridLayout(2,2));
+		setLayout(new GridLayout(4,1));
+		add(name);
 		add(filename);
-		add(empty);
 		add(ok);
 		add(back);
 

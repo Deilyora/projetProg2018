@@ -6,10 +6,10 @@ import java.awt.*;
  * This class creates the PopUp, a small window that appears when the game is over
  */
 public class PopUp extends JPanel {
-	
+
 	private JLabel message;
 	private JButton end;
-	
+
 	/**
 	 * the constructor that creates all components of the frame
 	 */
@@ -19,9 +19,11 @@ public class PopUp extends JPanel {
 		setLayout(new GridLayout(2,1));
 		add(message);
 		add(end);
-		
+
 	}
-	
+	public JLabel getMessage(){
+		return this.message;
+	}
 	/**
 	 * Return the button that the user clicks to close the game
 	 * @return the end button

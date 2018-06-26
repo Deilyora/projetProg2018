@@ -23,11 +23,12 @@ public class BoardPanel extends JPanel{
 	private JButton move;
 	private JButton release;
 	private JButton pause;
+	private JLabel player;
 	private ArrayList<GridButton> buttonsGrid;
 
 	/**
-	 * The constructor of boardpanel : initialize the grid with the pawns and the other buttons around the grid
-	 */
+	* The constructor of boardpanel : initialize the grid with the pawns and the other buttons around the grid
+	*/
 	public BoardPanel(){
 		this.buttonsGrid=new ArrayList<GridButton>();
 		Square[][] theGrid=new Square[this.height][this.width];
@@ -57,12 +58,15 @@ public class BoardPanel extends JPanel{
 		this.right.add(redScore);
 		this.right.add(greenScore);
 		this.right.add(green);
-		this.pause = new JButton("Pause");
+
 
 		this.top = new JPanel();
-		this.top.setLayout(new FlowLayout());
-		this.top.add(pause);
-		
+		this.top.setLayout(new BorderLayout());
+		this.pause = new JButton("Pause");
+		this.player=new JLabel("RED's turn");
+		this.top.add(player,BorderLayout.EAST);
+		this.top.add(pause,BorderLayout.WEST);
+
 		setLayout(new BorderLayout());
 		add(top, BorderLayout.NORTH);
 		add(center,BorderLayout.CENTER);
@@ -71,53 +75,65 @@ public class BoardPanel extends JPanel{
 	}
 
 	/**
-	 * Initialize the Board (used to display the score)
-	 * @param theBoard the current board
-	 */
+	* Initialize the Board (used to display the score)
+	* @param theBoard the current board
+	*/
 	public void boardInit(Board theBoard){
 		this.theBoard=theBoard;
 	}
-
+	public void setAllWhite(){
+		for(GridButton b : buttonsGrid){
+			b.setBackground(java.awt.Color.WHITE);
+		}
+	}
+	public void setPlayer(){
+		if(this.player.getText().equals("RED's turn")){
+			this.player.setText("GREEN's turn");
+		}
+		else{
+			this.player.setText("RED's turn");
+		}
+	}
 	/**
-	 * Gets the grid with button used to play pawns
-	 * @return the arraylist of gridButtons
-	 */
+	* Gets the grid with button used to play pawns
+	* @return the arraylist of gridButtons
+	*/
 	public ArrayList<GridButton> getButtonsGrid(){
 		return this.buttonsGrid;
 	}
 
 	/**
-	 * gets the button to click to move a pawns
-	 * @return the move button
-	 */
+	* gets the button to click to move a pawns
+	* @return the move button
+	*/
 	public JButton getMoveButton(){
 		return this.move;
 	}
 	/**
-	 * gets the button to click to release a pawns
-	 * @return the release button
-	 */
+	* gets the button to click to release a pawns
+	* @return the release button
+	*/
 	public JButton getReleaseButton(){
 		return this.release;
 	}
 	/**
-	 * gets the button to pause the game
-	 * @return the pause button
-	 */
+	* gets the button to pause the game
+	* @return the pause button
+	*/
 	public JButton getPauseButton() {
 		return this.pause;
 	}
 	/**
-	 * This method is used to display the score on the interface
-	 */
+	* This method is used to display the score on the interface
+	*/
 	public void setScore(){
 		this.redScore.setText(""+this.theBoard.getPoints(data.Color.RED));
 		this.greenScore.setText(""+this.theBoard.getPoints(data.Color.GREEN));
 	}
 	/**
-	 * This method creates the board of buttons using the grid of the game to place pawns and their color at the right place, displaying a real pawn on the button
-	 * @param grid the grid with the placement of the pawns
-	 */
+	* This method creates the board of buttons using the grid of the game to place pawns and their color at the right place, displaying a real pawn on the button
+	* @param grid the grid with the placement of the pawns
+	*/
 	public void setBoard(Square[][] grid){
 		this.center.removeAll();
 		ImageIcon img= null;

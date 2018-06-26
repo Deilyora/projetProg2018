@@ -40,6 +40,7 @@ public class MainFrame extends JFrame{
 		SavePanel save= new SavePanel();
 		this.e = new MainListener(this, menu, board, pause, thePopUp, selection, load,save);
 		save.getSavedButton().addActionListener(e);
+		save.getBackButton().addActionListener(e);
 		menu.getNewGameButton().addActionListener(e);
 		menu.getLoadGameButton().addActionListener(e);
 		menu.getQuitButton().addActionListener(e);

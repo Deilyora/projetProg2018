@@ -2,6 +2,7 @@ package controller;
 import data.*;
 import view.*;
 import java.io.*;
+import java.awt.*;
 import java.awt.event.*;
 /**
 * This class handles all the action on the GUI.
@@ -113,14 +114,17 @@ public class MainListener implements ActionListener{
 			theMain.setGridListener();
 			if(this.game.getBoard().getPoints(player.getColor()) >= 12){
 				theMain.setFrame(board,popUp);
+				this.popUp.getMessage().setText(player.getPlayerName()+" win");
 			}
 			if(bool){
 				game.setCurrentPlayer();
+				this.board.setPlayer();
 			}
 
 			if(game.getCurrentPlayer() instanceof AIPlayer){
 				game.getCurrentPlayer().play();
 				game.setCurrentPlayer();
+				this.board.setPlayer();
 				this.board.setBoard(game.getBoard().getGrid());
 				this.board.setScore();
 				theMain.setGridListener();
@@ -134,13 +138,16 @@ public class MainListener implements ActionListener{
 			theMain.setGridListener();
 			if(this.game.getBoard().getPoints(player.getColor()) >= 12){
 				theMain.setFrame(board,popUp);
+				this.popUp.getMessage().setText(player.getPlayerName()+" win");
 			}
 			if(bool){
 				game.setCurrentPlayer();
+				this.board.setPlayer();
 			}
 			if(game.getCurrentPlayer() instanceof AIPlayer){
 				game.getCurrentPlayer().play();
 				game.setCurrentPlayer();
+				this.board.setPlayer();
 				this.board.setBoard(game.getBoard().getGrid());
 				this.board.setScore();
 				theMain.setGridListener();
@@ -149,29 +156,32 @@ public class MainListener implements ActionListener{
 		else if (ev.getSource() == board.getPauseButton()) {
 			theMain.setFrame(board, pause);
 		}
+		else if (ev.getSource() == save.getBackButton()) {
+			theMain.setFrame(save, pause);
+		}
 		else if(ev.getSource()==save.getSavedButton()){
-			System.out.println("yolo");
 			String nameSave=save.getSaveName();
 			this.game.saveGame(nameSave);
 			theMain.setFrame(save,board);
 		}
 		else if(ev.getSource() instanceof GridButton){
-			this.buttonPressed++;
 			GridButton button=(GridButton)ev.getSource();
+			if(this.buttonPressed==2){
+				this.board.setAllWhite();
+				buttonPressed=0;
+			}
+			this.buttonPressed++;
 			if(this.buttonPressed==1){
 				this.oldX=button.x;
 				this.oldY=button.y;
 				this.newX=-1;
 				this.newY=-1;
-				System.out.println("oldX:"+oldX+" oldY:"+oldY);
-				System.out.println("newX:"+newX+" newY:"+newY);
+				button.setBackground(java.awt.Color.BLUE);
 			}
-			else{
+			if(this.buttonPressed==2){
 				this.newX=button.x;
 				this.newY=button.y;
-				buttonPressed=0;
-				System.out.println("oldX:"+oldX+" oldY:"+oldY);
-				System.out.println("newX:"+newX+" newY:"+newY);
+				button.setBackground(java.awt.Color.YELLOW);
 			}
 		}
 	}
