@@ -16,7 +16,9 @@ public class Game implements Serializable {
 	* Board, size, gamemode, name of players, mode. It then creates the game with these parameters
 	* @param playerName1 the name of the player 1
 	* @param playerName2 the name of the player 2
-	* @param mode the gamemode (AI/Human)
+	* @param theMode the gamemode (AI/Human)
+	* @param height the height of the board
+	* @param width the width of the board
 	*/
 	public Game(String playerName1, String playerName2, Mode theMode, int height, int width) {
 		ArrayList<Pawn> arrayp1 = new ArrayList<Pawn>();
@@ -30,7 +32,7 @@ public class Game implements Serializable {
 	/**
 	* This method initializes the grid which will be given to the board.
 	* It also initializes the pawnList of both players
-	* @param heigth the height of the board
+	* @param height the height of the board
 	* @param width the width of the board
 	* @param arrayP1 the pawnList of player1
 	* @param arrayP2 the pawnList of player2
@@ -225,7 +227,7 @@ public class Game implements Serializable {
 	}
 	/**
 	* This method saves the game in a file.
-	* @return true if the game has been saved correctly
+	* @param fileName the name of the file
 	*/
 	public void saveGame(String fileName) {
 		try {

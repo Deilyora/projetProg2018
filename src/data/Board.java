@@ -29,7 +29,7 @@ public class Board implements Serializable  {
 	* @param oldX the current X position of the pawn
 	* @param oldY the current Y position of the pawn
 	* @param newX the new X position of the pawn
-	* @param posY the new Y position of the pawn
+	* @param newY the new Y position of the pawn
 	* @param release indicate if the the pawn release (stop eating) another pawn
 	* @param thePlayer the player who's moving the pawn
 	* @return true if the move was possible and the pawn has been moved, false otherwise.
@@ -88,7 +88,7 @@ public class Board implements Serializable  {
 	* @param oldX the current X position of the pawn
 	* @param oldY the current Y position of the pawn
 	* @param newX the new X position of the pawn
-	* @param posY the new Y position of the pawn
+	* @param newY the new Y position of the pawn
 	* @param release indicate if the the pawn release (stop eating) another pawn
 	* @param thePlayer the player who's moving the pawn
 	* @return true if the move is possible, false otherwise.
@@ -164,7 +164,7 @@ public class Board implements Serializable  {
 	* @param oldX the current X position of the pawn
 	* @param oldY the current Y position of the pawn
 	* @param newX the new X position of the pawn
-	* @param posY the new Y position of the pawn
+	* @param newY the new Y position of the pawn
 	* @return true if they're right next to one another, false otherwise
 	*/
 	private boolean isNextTo(int oldX,int oldY,int newX, int newY){

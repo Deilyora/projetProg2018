@@ -187,7 +187,7 @@ public class MainListener implements ActionListener{
 	}
 	/**
 	 * This method is used to load an existing game from a file using its name
-	 * @param the name of the file
+	 * @param filename name of the file
 	 */
 	private void loadGame(String filename) {
 		try {

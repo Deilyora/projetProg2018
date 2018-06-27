@@ -23,7 +23,7 @@ public abstract class Pawn implements Serializable {
 	 * @param posY The position of the pawn on Y
 	 * @param eating is true if the pawn has eaten a pawn
 	 * @param eaten is true if the pawn has been eaten
-	 * @param color the color of the pawn
+	 * @param theColor the color of the pawn
 	 */
 	public Pawn(int posX, int posY, boolean eating, boolean eaten, Color theColor) {
 		this.posX = posX;
