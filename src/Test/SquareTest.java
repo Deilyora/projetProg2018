@@ -11,8 +11,8 @@ public class SquareTest{
    @Before()
    public void setUp(){
       mySquare=new Square(0,0);
-      myPawn=new PawnS1(0,0,false,false);
-      myPawn2=new PawnS1(0,0,false,false);
+      myPawn=new PawnS1(0,0,false,false,Color.RED);
+      myPawn2=new PawnS1(0,0,false,false,Color.RED);
    }
    @Test()
    //Checks if the ArrayList is properly initialized
