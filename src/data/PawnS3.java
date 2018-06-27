@@ -13,6 +13,7 @@ public class PawnS3 extends Pawn implements Serializable  {
 	 * @param posY The postion of the pawn on Y
 	 * @param eating is true if the pawn has eaten a pawn
 	 * @param eaten is true if the pawn has been eaten
+	 * @param color the color of the pawn
 	 */
 	public PawnS3(int posX, int posY, boolean eating, boolean eaten, Color color) {
       super(posX,posY,eating,eaten,color);

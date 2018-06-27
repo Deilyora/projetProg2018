@@ -115,7 +115,7 @@ public class Game implements Serializable {
 
 	/**
 	* Replaces the player 1 with another one.
-	* @param player1
+	* @param player1 the new player1
 	*/
 	public void setPlayer1(Player player1) {
 		this.player1 = player1;
@@ -124,7 +124,7 @@ public class Game implements Serializable {
 
 	/**
 	* Gets the player2.
-	* @return the player2
+	* @return the player2 
 	*/
 	public Player getPlayer2() {
 		return this.player2;
@@ -132,7 +132,7 @@ public class Game implements Serializable {
 
 	/**
 	* Replaces the player 2 with another one.
-	* @param player2
+	* @param player2 the new player2
 	*/
 	public void setPlayer2(Player player2) {
 		this.player2 = player2;

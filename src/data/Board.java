@@ -15,7 +15,13 @@ public class Board implements Serializable  {
 	public static final String ANSI_RESET = "\033[0m";
 	public static final String ANSI_GREEN = "\u001B[32m";
 	public static final String ANSI_RED = "\u001B[31m";
-
+	
+	/**
+	 * The constructor of the class 
+	 * @param width the width of the board
+	 * @param height the height of the board
+	 * @param grid the grid
+	 */
 	public Board(int width, int height,Square[][] grid) {
 		this.width = width;
 		this.height = height;
@@ -146,6 +152,7 @@ public class Board implements Serializable  {
 	* coordinates belongs to the current player.
 	* @param x the x coordinate
 	* @param y the y coordinate
+	* @param thePlayer the player
 	* @return true if it belongs to the player, false otherwise
 	*/
 	private boolean isMine(int x,int y,Player thePlayer){
@@ -183,6 +190,8 @@ public class Board implements Serializable  {
 	* @param aY Y coordinate of pawn A
 	* @param bX X coordinate of pawn B
 	* @param bY Y coordinate of pawn B
+	* @param playerA the player
+	* @return true if the pawn is eatable
 	*/
 	private boolean isEatable(int aX,int aY,int bX, int bY,Player playerA){
 		boolean ret=false;

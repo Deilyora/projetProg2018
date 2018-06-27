@@ -73,8 +73,9 @@ public class MainFrame extends JFrame{
 
 	/**
 	 * The main of the class used to launch the Frame
+	 * @param args the array of arguments
 	 */
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				new MainFrame().setVisible(true);
@@ -92,6 +93,8 @@ public class MainFrame extends JFrame{
 	/**
 	 * This method is used when the user clicks on a button that goes to another frame
 	 * the old frame is removed and the new one is displayed
+	 * @param oldFrame the frame that is gonna be removed
+	 * @param newFrame the frame to display
 	 */
 	public void setFrame(JPanel oldFrame, JPanel newFrame) {
 		remove(oldFrame);

@@ -46,6 +46,7 @@ public class PausePanel extends JPanel{
 	
 	/**
 	 * Return the button used to get back to the game
+	 * @return the back button
 	 */
 	public JButton getBackButton() {
 		return this.back;

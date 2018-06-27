@@ -14,6 +14,8 @@ public class Square implements Serializable{
    /**
     * The constructor of Square.
     * It creates a new pawn ArrayList.
+	* @param x the coordinate x of the square
+	* @param y the coordinate y of the square
     */
    public Square(int x,int y){
 		this.pawns = new ArrayList<Pawn>();
@@ -28,7 +30,8 @@ public class Square implements Serializable{
       return this.pawns;
    }
    /**
-    * Gets one of the pawns of the square.
+    * Gets one of the pawns of the square
+	* @param index the index of the pawn
     * @return one of the pawns
     */
    public Pawn getPawn(int index){

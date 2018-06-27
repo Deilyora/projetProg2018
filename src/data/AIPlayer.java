@@ -10,6 +10,7 @@ public class AIPlayer extends Player implements Serializable   {
 
 	/**
 	* The constructor of AIPlayer. The name of the player is directly written in the class.
+	* @param name the name of the player
 	* @param pawnList the pawns of the player
 	* @param board the board
 	* @param top if the player is on top of the grid or not
